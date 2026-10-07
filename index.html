@@ -178,6 +178,15 @@
   .xp li{position:relative;padding-left:22px;margin-bottom:8px;color:var(--ink-2);font-size:15.5px}
   .xp li::before{content:"";position:absolute;left:0;top:.78em;width:10px;height:2px;background:var(--red)}
   .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+  .xp-box.has-video{display:grid;grid-template-columns:1fr 268px;gap:clamp(20px,3vw,40px);align-items:start}
+  .watch{display:inline-flex;align-items:center;gap:10px;margin-top:10px;font-size:14px;font-weight:600;color:var(--red)}
+  .watch .play{width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:11px;padding-left:2px}
+  .watch:hover{text-decoration:underline;text-underline-offset:4px}
+  .reel{margin:0}
+  .reel-frame{position:relative;width:100%;aspect-ratio:9/16;background:#111;border-radius:12px;overflow:hidden;border:3px solid var(--red);box-shadow:0 20px 40px -22px rgba(231,40,40,.6)}
+  .reel-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .reel-tag{position:absolute;top:10px;left:10px;z-index:1;background:var(--red);color:#fff;font-family:var(--num);font-weight:800;font-size:10px;letter-spacing:.1em;padding:3px 8px;border-radius:2px;pointer-events:none}
+  .reel figcaption{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.45}
 
   /* ---------- 03 PROCESS (editor timeline, dark) ---------- */
   #process{background:#0F0F0F;color:#F1EFEA}
@@ -289,11 +298,12 @@
   .aw-col h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin:0;padding:16px 0;font-weight:700;color:var(--red);border-bottom:2px solid var(--red)}
   .aw{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:start}
   .aw:last-child{border-bottom:0}
-  .medal-c{width:48px;height:48px;border-radius:50%;border:2px solid var(--red);color:var(--red);display:grid;place-items:center;font-family:var(--num);font-weight:800;font-size:12px;line-height:1.05;text-align:center}
+  .medal-c{width:48px;height:48px;border-radius:50%;padding:0;margin:0;border:2px solid var(--red);color:var(--red);display:grid;place-items:center;font-family:var(--num);font-weight:800;font-size:12px;line-height:1.05;text-align:center;flex:none}
   .medal-c.fill{background:var(--red);color:#fff}
   .medal-c.big{font-size:17px}
   .aw b{display:block;font-weight:700;font-size:15px;line-height:1.45}
-  .aw span{display:block;color:var(--muted);font-size:13.5px;line-height:1.5;margin-top:3px}
+  .aw .d{display:block;color:var(--muted);font-size:13.5px;line-height:1.5;margin-top:3px}
+  .aw .d .hl{font-weight:600}
 
   /* ---------- 08 EDUCATION & SKILLS (certificate) ---------- */
   .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
@@ -337,9 +347,11 @@
   .contact h2{font-family:var(--serif);font-weight:500;font-size:clamp(42px,7vw,96px);line-height:1.02;letter-spacing:-.025em;margin:26px 0 26px;max-width:980px}
   .contact h2 em{font-style:italic;font-weight:400}
   .contact p.lead{color:rgba(255,255,255,.9);font-size:18px;font-weight:300;max-width:620px;margin:0 0 48px}
-  .c-links{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.35)}
+  .c-links{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.35)}
   .c-links > *{padding:22px 20px 22px 0;display:block}
   .c-links > * + *{padding-left:20px;border-left:1px solid rgba(255,255,255,.35)}
+  .c-links > *:nth-child(4){padding-left:0;border-left:0}
+  .c-links > *:nth-child(n+4){border-top:1px solid rgba(255,255,255,.35)}
   .c-links small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.75;margin-bottom:6px}
   .c-links span{font-size:16px;font-weight:500;word-break:break-word}
   .c-links a:hover span{text-decoration:underline;text-underline-offset:4px}
@@ -377,12 +389,15 @@
     .intro-grid{grid-template-columns:1fr}
     .portrait{max-width:420px;order:-1;margin-left:14px}
     .sec-head,.about-grid,.xp-item{grid-template-columns:1fr;gap:12px}
+    .xp-box.has-video{grid-template-columns:1fr}
+    .reel{max-width:300px}
     .sec-num{padding-top:0}
     .script,.two,.lead-grid{grid-template-columns:1fr}
     .lead-stat{position:static}
     .gallery{columns:2}
     .c-links{grid-template-columns:1fr 1fr}
-    .c-links > *:nth-child(3){padding-left:0;border-left:0}
+    .c-links > *:nth-child(n){padding-left:20px;border-left:1px solid rgba(255,255,255,.35)}
+    .c-links > *:nth-child(odd){padding-left:0;border-left:0}
     .c-links > *:nth-child(n+3){border-top:1px solid rgba(255,255,255,.35)}
     .social{grid-template-columns:1fr}
   }
@@ -538,6 +553,7 @@
       <aside class="side-note rv">
         <p><span class="label">Hồ sơ</span>Sinh viên chuyên ngành Phân tích dữ liệu lớn<br/>Khoa Kinh tế số — APD</p>
         <p><span class="label">Vị trí mong muốn</span>Sáng tạo nội dung TikTok<br/>Part-time · Hà Nội</p>
+        <p><span class="label">Liên hệ nhanh</span><a href="tel:+84354044152" class="hl">0354 044 152</a><br/><a href="https://www.linkedin.com/in/th%E1%BA%BF-vi%E1%BB%87t-nguy%E1%BB%85n-37319439a/" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:3px">LinkedIn</a></p>
       </aside>
       <div class="about-text rv">
         <p>Tôi là sinh viên chuyên ngành Phân tích dữ liệu lớn, Khoa Kinh tế số, Học viện Chính sách và Phát triển. Tôi đến với TikTok từ chính nhu cầu chia sẻ chuyện học của mình, rồi qua những lần làm đại sứ cho <span class="hl">Google, OPPO, ANESSA</span> và viết kịch bản KOC cho nhiều thương hiệu, tôi nhận ra điều mình thích nhất là khoảnh khắc một ý tưởng nhỏ trở thành video chạm được người xem.</p>
@@ -573,13 +589,23 @@
 
       <article class="xp-item feature">
         <div class="xp-when">26/03 – 27/03/2026<br/><span class="kind">Truyền hình</span></div>
-        <div class="xp-box rv">
+        <div class="xp-box has-video rv">
+          <div>
           <h3 class="xp-role">Đại diện hình ảnh sinh viên — Quảng bá Học viện cùng <span class="hl">VTV</span></h3>
           <p class="xp-org">Video quảng bá Học viện Chính sách và Phát triển, hợp tác cùng VTV</p>
           <ul>
             <li>Được Học viện lựa chọn làm <span class="hl">gương mặt đại diện sinh viên</span> trong video quảng bá hình ảnh nhà trường do VTV thực hiện.</li>
             <li>Trực tiếp tham gia <span class="hl">hai ngày ghi hình</span> cùng ê-kíp truyền hình chuyên nghiệp: nhận kịch bản phân cảnh, diễn xuất và dẫn dắt trước ống kính, phối hợp theo chỉ đạo của đạo diễn và quay phim.</li>
           </ul>
+          <a class="watch" href="https://www.facebook.com/reel/996751792998006/" target="_blank" rel="noopener"><span class="play">▶</span>Xem video quảng bá trên Facebook</a>
+          </div>
+          <figure class="reel">
+            <div class="reel-frame">
+              <span class="reel-tag">VIDEO · VTV × APD</span>
+              <iframe src="https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2Freel%2F996751792998006%2F&amp;show_text=false&amp;width=267&amp;t=0" title="Video quảng bá Học viện Chính sách và Phát triển cùng VTV" loading="lazy" scrolling="no" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+            <figcaption>Video quảng bá Học viện — tôi là gương mặt đại diện sinh viên</figcaption>
+          </figure>
         </div>
       </article>
 
@@ -752,7 +778,7 @@
     <div class="gallery" id="galleryGrid">
       <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">01</span><img src="assets/gallery-3.jpg" alt="Quảng bá Học viện cùng VTV" loading="lazy" width="787" height="1400"/></div><figcaption><b>Quảng bá Học viện cùng VTV</b><span>Gương mặt đại diện sinh viên · 03/2026</span></figcaption></figure>
       <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">02</span><img src="assets/gallery-1.jpg" alt="Google Student Ambassador" loading="lazy" width="646" height="1400"/></div><figcaption><b>Google Student Ambassador</b><span>Workshop AI &amp; chuyển đổi số</span></figcaption></figure>
-      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">03</span><img src="assets/gallery-6.jpg" alt="Giải Quý quân Take One" loading="lazy" width="787" height="1400"/></div><figcaption><b>Take One — Giải Quý quân</b><span>Cuộc thi Sản xuất Video Quảng cáo · Youth NEU Media</span></figcaption></figure>
+      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">03</span><img src="assets/gallery-6.jpg" alt="Giải Quý quân Take One" loading="lazy" width="787" height="1400"/></div><figcaption><b>Take One — Giải Quý quân</b><span class="d">Cuộc thi Sản xuất Video Quảng cáo · Youth NEU Media</span></figcaption></figure>
       <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">04</span><img src="assets/gallery-2.jpg" alt="OPPO NEXT TREND Ambassador" loading="lazy" width="933" height="1400"/></div><figcaption><b>OPPO NEXT TREND Ambassador</b><span>Chiến dịch Gen Z · 2025</span></figcaption></figure>
       <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">05</span><img src="assets/extra-1.jpg" alt="Đại sứ truyền thông các sự kiện sinh viên" loading="lazy" width="933" height="1400"/></div><figcaption><b>Đại sứ Truyền thông</b><span>Hackathon Vietnam · You Can · các sự kiện sinh viên</span></figcaption></figure>
       <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">06</span><img src="assets/gallery-4.jpg" alt="Đọc diễn văn tại Đền Hùng" loading="lazy" width="1080" height="1350"/></div><figcaption><b>Đại diện 1.600+ sinh viên</b><span>Đọc diễn văn tại Đền Hùng · Vitri APD Military</span></figcaption></figure>
@@ -838,21 +864,21 @@
     <div class="awards">
       <div class="aw-col rv">
         <h4>Sáng tạo &amp; Truyền thông</h4>
-        <div class="aw"><span class="medal-c fill big">3</span><div><b>Quý quân (Giải Ba) — Take One</b><span>Cuộc thi Sản xuất Video Quảng cáo · Youth NEU Media, bảo trợ bởi Đoàn TN ĐH Kinh tế Quốc dân. Thể hiện <span class="hl">tư duy hình ảnh, quay dựng và kể chuyện thương hiệu</span>.</span></div></div>
-        <div class="aw"><span class="medal-c">KK</span><div><b>Giải Khuyến khích — Inspire the Light 2026</b><span>Chung kết cuộc thi hùng biện và truyền cảm hứng · Khoa Luật kinh tế, APD</span></div></div>
+        <div class="aw"><span class="medal-c fill big">3</span><div><b>Quý quân (Giải Ba) — Take One</b><span class="d">Cuộc thi Sản xuất Video Quảng cáo · Youth NEU Media, bảo trợ bởi Đoàn TN ĐH Kinh tế Quốc dân. Thể hiện <span class="hl">tư duy hình ảnh, quay dựng và kể chuyện thương hiệu</span>.</span></div></div>
+        <div class="aw"><span class="medal-c">KK</span><div><b>Giải Khuyến khích — Inspire the Light 2026</b><span class="d">Chung kết cuộc thi hùng biện và truyền cảm hứng · Khoa Luật kinh tế, APD</span></div></div>
       </div>
       <div class="aw-col rv">
         <h4>Học thuật &amp; Ngôn ngữ</h4>
-        <div class="aw"><span class="medal-c fill big">1</span><div><b>Giải Nhất — “English and Technology: Partners in Progress”</b><span>Cuộc thi tọa đàm cấp Khoa · Khoa Kinh tế số, APD</span></div></div>
-        <div class="aw"><span class="medal-c fill big">2</span><div><b>Giải Nhì NCKH sinh viên cấp Khoa</b><span>Năm học 2025–2026 · đề tài thuật toán TikTok Shop</span></div></div>
-        <div class="aw"><span class="medal-c big">3</span><div><b>Giải Ba — Destination through times</b><span>Khoa Quản trị kinh doanh, APD</span></div></div>
-        <div class="aw"><span class="medal-c big">3</span><div><b>Giải Ba — APD English Contest</b><span>Khoa Ngôn ngữ Anh, APD</span></div></div>
+        <div class="aw"><span class="medal-c fill big">1</span><div><b>Giải Nhất — “English and Technology: Partners in Progress”</b><span class="d">Cuộc thi tọa đàm cấp Khoa · Khoa Kinh tế số, APD</span></div></div>
+        <div class="aw"><span class="medal-c fill big">2</span><div><b>Giải Nhì NCKH sinh viên cấp Khoa</b><span class="d">Năm học 2025–2026 · đề tài thuật toán TikTok Shop</span></div></div>
+        <div class="aw"><span class="medal-c big">3</span><div><b>Giải Ba — Destination through times</b><span class="d">Khoa Quản trị kinh doanh, APD</span></div></div>
+        <div class="aw"><span class="medal-c big">3</span><div><b>Giải Ba — APD English Contest</b><span class="d">Khoa Ngôn ngữ Anh, APD</span></div></div>
       </div>
       <div class="aw-col rv">
         <h4>Kinh doanh &amp; Khởi nghiệp</h4>
-        <div class="aw"><span class="medal-c fill">TOP<br/>28</span><div><b>Top 28 Chung kết toàn quốc — The Story of Leaders 2024</b><span>Hệ sinh thái MSOCE</span></div></div>
-        <div class="aw"><span class="medal-c">TV</span><div><b>Giải Triển vọng — DBIC 2025</b><span>Cuộc thi Đột phá Kinh doanh số · Khoa Kinh tế &amp; Quản lý, ĐH Đại Nam</span></div></div>
-        <div class="aw"><span class="medal-c">2026</span><div><b>Thí sinh Data Explorers 2026</b><span>Cuộc thi phân tích dữ liệu</span></div></div>
+        <div class="aw"><span class="medal-c fill">TOP<br/>28</span><div><b>Top 28 Chung kết toàn quốc — The Story of Leaders 2024</b><span class="d">Hệ sinh thái MSOCE</span></div></div>
+        <div class="aw"><span class="medal-c">TV</span><div><b>Giải Triển vọng — DBIC 2025</b><span class="d">Cuộc thi Đột phá Kinh doanh số · Khoa Kinh tế &amp; Quản lý, ĐH Đại Nam</span></div></div>
+        <div class="aw"><span class="medal-c">2026</span><div><b>Thí sinh Data Explorers 2026</b><span class="d">Cuộc thi phân tích dữ liệu</span></div></div>
       </div>
     </div>
   </div>
@@ -914,14 +940,17 @@
     <p class="lead rv">Sẵn sàng làm part-time tại Hà Nội, tham gia ghi hình theo lịch của team và bắt đầu sớm.</p>
 
     <div class="c-links rv">
-      <a href="mailto:nguyenthevietk76@gmail.com"><small>Email</small><span>nguyenthevietk76@gmail.com</span></a>
+      <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=nguyenthevietk76@gmail.com&amp;su=S%20Channel%20-%20Trao%20%C4%91%E1%BB%95i%20v%E1%BB%9Bi%20Nguy%E1%BB%85n%20Th%E1%BA%BF%20Vi%E1%BB%87t" target="_blank" rel="noopener"><small>Email · Gmail</small><span>nguyenthevietk76@gmail.com</span></a>
+      <a href="tel:+84354044152"><small>Điện thoại</small><span>0354 044 152</span></a>
       <a href="https://www.tiktok.com/@viet_ngthe?lang=vi-VN" target="_blank" rel="noopener"><small>TikTok</small><span>@viet_ngthe</span></a>
       <a href="https://www.facebook.com/nguyen.the.viet.220884" target="_blank" rel="noopener"><small>Facebook</small><span>Nguyễn Thế Việt</span></a>
+      <a href="https://www.linkedin.com/in/th%E1%BA%BF-vi%E1%BB%87t-nguy%E1%BB%85n-37319439a/" target="_blank" rel="noopener"><small>LinkedIn</small><span>Thế Việt Nguyễn</span></a>
       <div><small>Địa điểm</small><span>Hà Nội, Việt Nam</span></div>
     </div>
 
     <div class="c-cta rv">
-      <a href="mailto:nguyenthevietk76@gmail.com?subject=S%20Channel%20-%20Trao%20%C4%91%E1%BB%95i%20v%E1%BB%9Bi%20Nguy%E1%BB%85n%20Th%E1%BA%BF%20Vi%E1%BB%87t" class="btn btn-white">Gửi email <span aria-hidden="true">→</span></a>
+      <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=nguyenthevietk76@gmail.com&amp;su=S%20Channel%20-%20Trao%20%C4%91%E1%BB%95i%20v%E1%BB%9Bi%20Nguy%E1%BB%85n%20Th%E1%BA%BF%20Vi%E1%BB%87t" target="_blank" rel="noopener" class="btn btn-white">Gửi email qua Gmail <span aria-hidden="true">→</span></a>
+      <a href="tel:+84354044152" class="btn btn-ghost">Gọi 0354 044 152</a>
       <button type="button" class="btn btn-ghost" id="printBtn">Lưu trang dạng PDF</button>
     </div>
 
