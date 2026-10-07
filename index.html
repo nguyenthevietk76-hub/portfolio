@@ -1,0 +1,1167 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nguyễn Thế Việt — Content Creator Portfolio</title>
+<meta name="description" content="Portfolio của Nguyễn Thế Việt — sinh viên Phân tích dữ liệu lớn (APD), nhà sáng tạo nội dung TikTok, người viết kịch bản KOC. Ứng tuyển Sáng tạo nội dung kênh TikTok — S Channel Network." />
+<meta property="og:title" content="Nguyễn Thế Việt — Content Creator Portfolio" />
+<meta property="og:description" content="Ý tưởng · Kịch bản · Quay dựng · Đọc số liệu. Ứng tuyển Sáng tạo nội dung TikTok — S Channel Network." />
+<meta property="og:image" content="assets/avatar.jpg" />
+<meta name="theme-color" content="#E72828" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@600;700;800;900&family=Noto+Serif+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --white:#FFFFFF;
+    --paper:#FFFFFF;
+    --paper-2:#F6F5F3;
+    --ink:#111111;
+    --ink-2:#2B2B2B;
+    --muted:#6E6C66;
+    --line:#E6E3DE;
+    --red:#E72828;
+    --red-deep:#C41D1D;
+    --red-tint:#FFF2F1;
+    --sans:"Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --serif:"Noto Serif Display", "Noto Serif", Georgia, serif;
+    --num:"Montserrat", "Be Vietnam Pro", sans-serif;
+    --wrap:1180px;
+    --gutter:clamp(20px,4vw,48px);
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--red);color:#fff}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+  .hl{color:var(--red);font-weight:600}
+  .hl-u{background:linear-gradient(transparent 60%,rgba(231,40,40,.18) 0);font-weight:600;color:var(--ink)}
+  .num{font-family:var(--num);font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+
+  /* ---------- NAV ---------- */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line);transform:translateY(-100%);transition:transform .45s var(--ease)}
+  .nav.show,body.menu-open .nav{transform:none}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{font-weight:600;font-size:15px;display:flex;align-items:center;gap:10px}
+  .brand-mark{width:30px;height:30px;background:var(--red);color:#fff;display:grid;place-items:center;font-family:var(--num);font-weight:800;font-size:15px;border-radius:4px}
+  .nav-links{display:flex;gap:28px;align-items:center;font-size:14px}
+  .nav-links a{color:var(--muted);transition:color .2s;position:relative}
+  .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+  .nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--red)}
+  .progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--red);width:0}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;font-size:14px;font-weight:600;border:1.5px solid var(--ink);transition:background .25s,color .25s,border-color .25s;cursor:pointer;font-family:inherit;line-height:1.2;background:transparent;color:var(--ink);border-radius:2px}
+  .btn-red{background:var(--red);border-color:var(--red);color:#fff}
+  .btn-red:hover{background:var(--red-deep);border-color:var(--red-deep)}
+  .btn:not(.btn-red):not(.btn-white):hover{background:var(--ink);color:#fff}
+  .btn-sm{padding:9px 16px;font-size:13px}
+  .nav-links a.btn{color:#fff}
+  .burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+  .burger span{display:block;width:22px;height:1.5px;background:var(--ink);margin:5px 0;transition:transform .3s,opacity .3s}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+  /* ---------- STAGE (lanyard hero) ---------- */
+  .stage{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;background:#fff;user-select:none;-webkit-user-select:none}
+  .corner{position:absolute;top:clamp(20px,3.2vw,40px);margin:0;font-family:var(--serif);font-size:clamp(13px,1.05vw,15px);line-height:1.45;color:var(--ink);z-index:4}
+  .corner-l{left:var(--gutter)}
+  .corner-r{right:var(--gutter);text-align:right}
+  .corner a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+  .corner a:hover{color:var(--red)}
+  .corner .hl{font-weight:500}
+  .marquee{position:absolute;left:0;right:0;bottom:-.14em;z-index:1;font-family:var(--serif);font-weight:400;font-size:clamp(96px,17vw,280px);line-height:1.18;letter-spacing:-.035em;white-space:nowrap;color:var(--ink);pointer-events:none}
+  .marquee-track{display:inline-flex;gap:.28em;padding-left:.28em;animation:marquee 46s linear infinite}
+  .marquee .sep{font-size:.4em;align-self:center;color:var(--red);transform:translateY(-.1em)}
+  .marquee .r{color:var(--red);font-style:italic}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+  .strap{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
+  .strap-line{fill:none;stroke:#151515;stroke-width:13;stroke-linejoin:round}
+  .strap-line.red{stroke:var(--red)}
+  .strap-shadow{fill:none;stroke:rgba(0,0,0,.06);stroke-width:16}
+  .badge{--w:clamp(228px,22vw,300px);position:absolute;left:0;top:0;width:var(--w);z-index:5;transform-origin:50% 0;cursor:grab;touch-action:none;will-change:transform;backface-visibility:hidden}
+  .badge.dragging{cursor:grabbing}
+  .clip{position:relative;height:46px;display:flex;flex-direction:column;align-items:center}
+  .clip-ring{width:16px;height:22px;border:3px solid #9a9a9a;border-radius:7px;background:linear-gradient(90deg,#d9d9d9,#f7f7f7 45%,#a8a8a8)}
+  .clip-hook{width:4px;height:24px;margin-top:-2px;background:linear-gradient(90deg,#8d8d8d,#e6e6e6,#8d8d8d);border-radius:2px}
+  .holder{position:relative;padding:34px 12px 12px;border-radius:14px;background:rgba(246,246,246,.92);border:1px solid rgba(0,0,0,.10);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 26px 40px -18px rgba(0,0,0,.30)}
+  .holder::after{content:"";position:absolute;inset:0;border-radius:14px;background:linear-gradient(125deg,rgba(255,255,255,.7) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 72%,rgba(255,255,255,.35) 100%);pointer-events:none}
+  .holder-slot{position:absolute;top:12px;left:50%;width:56px;height:9px;margin-left:-28px;border-radius:5px;border:1px solid rgba(0,0,0,.18);background:rgba(0,0,0,.04)}
+  .holder-hole{position:absolute;top:10px;width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.18)}
+  .holder-hole.l{left:14px}.holder-hole.r{right:14px}
+  .card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+  .card-body{padding:18px 18px 14px}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .card-name{font-family:var(--serif);font-weight:500;font-size:calc(var(--w)*.135);line-height:1.04;letter-spacing:-.03em;padding-top:.15em}
+  .card-name em{font-style:normal;color:var(--red);white-space:nowrap}
+  .card-photo{width:calc(var(--w)*.18);flex:none;aspect-ratio:3/4;object-fit:cover;object-position:center 15%;border-radius:2px;pointer-events:none}
+  .card-meta{margin-top:calc(var(--w)*.1)}
+  .card-meta small{display:block;font-family:var(--serif);font-style:italic;font-weight:500;font-size:11px;margin-top:8px}
+  .card-meta p{margin:2px 0 0;font-size:10.5px;line-height:1.5;color:var(--ink-2)}
+  .card-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+  .card-chips span{font-size:9.5px;font-weight:600;padding:2px 8px;border-radius:999px;color:#fff;background:#111}
+  .card-chips span.r{background:var(--red)}
+  .card-foot{background:var(--red);color:#fff;font-family:var(--num);font-weight:800;font-size:10px;letter-spacing:.14em;padding:8px 18px;display:flex;justify-content:space-between}
+  .drag-hint{position:absolute;z-index:4;margin:0;font-family:var(--serif);font-style:italic;font-size:14px;color:var(--red);pointer-events:none;transition:opacity .6s;left:0;top:0}
+  .drag-hint.hide{opacity:0}
+
+  /* ---------- SHARED SECTION ---------- */
+  section.block{padding:clamp(80px,10vw,132px) 0;position:relative}
+  .sec-head{display:grid;grid-template-columns:220px 1fr;gap:clamp(24px,4vw,64px);margin-bottom:clamp(40px,6vw,72px);align-items:start}
+  .sec-num{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-top:16px;display:flex;align-items:center;gap:10px}
+  .sec-num b{font-family:var(--num);font-weight:800;color:#fff;background:var(--red);letter-spacing:0;font-size:12px;padding:3px 7px;border-radius:2px}
+  .sec-title{font-family:var(--serif);font-weight:500;font-size:clamp(34px,4.6vw,58px);line-height:1.08;letter-spacing:-.02em;margin:0;max-width:840px}
+  .sec-title em{font-style:italic;font-weight:400;color:var(--red)}
+  .sec-kicker{margin:16px 0 0;color:var(--muted);max-width:640px;font-size:16px}
+  .chip{display:inline-block;font-size:12.5px;padding:4px 11px;border:1px solid var(--line);background:#fff;color:var(--ink-2);border-radius:2px}
+  .chip.r{border-color:var(--red);color:var(--red);font-weight:600}
+
+  /* ---------- INTRO ---------- */
+  .intro{padding:clamp(80px,10vw,128px) 0 0}
+  .intro-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(32px,6vw,80px);align-items:end}
+  .intro-grid > *{min-width:0}
+  .apply-tag{display:inline-flex;align-items:center;gap:10px;font-size:13px;border:1px solid var(--red);color:var(--red);font-weight:600;padding:7px 14px;border-radius:2px}
+  .apply-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(231,40,40,.15);animation:pulse 2s infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 7px rgba(231,40,40,0)}}
+  .intro h2{font-family:var(--serif);font-weight:500;font-size:clamp(38px,5.4vw,72px);line-height:1.06;letter-spacing:-.02em;margin:24px 0 26px}
+  .intro h2 em{font-style:italic;font-weight:400;color:var(--red)}
+  .lead{font-size:clamp(17px,1.6vw,20px);line-height:1.6;color:var(--ink-2);max-width:580px;margin:0 0 34px;font-weight:300}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+  .portrait{margin:0;position:relative}
+  .portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;background:var(--paper-2)}
+  .portrait::before{content:"";position:absolute;left:-14px;top:-14px;width:72px;height:72px;border-left:3px solid var(--red);border-top:3px solid var(--red);z-index:1}
+  .portrait figcaption{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);padding-top:12px;margin-top:14px;border-top:1px solid var(--line)}
+  /* red stat band (S Channel style) */
+  .statband{background:var(--red);color:#fff;margin-top:clamp(64px,8vw,96px)}
+  .statband .wrap{display:grid;grid-template-columns:repeat(5,1fr)}
+  .stat{padding:clamp(28px,4vw,44px) 16px clamp(26px,3.5vw,40px);text-align:center;position:relative}
+  .stat + .stat::before{content:"";position:absolute;left:0;top:28%;bottom:28%;width:1px;background:rgba(255,255,255,.3)}
+  .stat .num{display:block;font-size:clamp(40px,5vw,64px);line-height:1}
+  .stat span{display:block;font-size:13px;margin-top:10px;opacity:.92;line-height:1.45}
+
+  /* ---------- 01 ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:220px 1fr;gap:clamp(24px,4vw,64px)}
+  .side-note{font-size:13px;color:var(--muted);line-height:1.6}
+  .side-note .label{display:block;color:var(--red);font-weight:700;margin:0 0 6px;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+  .side-note p{margin:0 0 22px}
+  .about-text p{font-size:clamp(17px,1.5vw,19px);line-height:1.75;margin:0 0 22px;color:var(--ink-2);font-weight:300;max-width:760px}
+  .about-text p:first-child::first-letter{font-family:var(--serif);float:left;font-size:84px;line-height:.86;padding:8px 14px 0 0;color:var(--red)}
+  .pull{margin:40px 0;padding:6px 0 6px 28px;border-left:4px solid var(--red);font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.4vw,30px);line-height:1.35;max-width:760px}
+  .pull small{display:block;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+  .offer{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+  .offer div{border:1px solid var(--line);padding:20px 18px;transition:border-color .3s,transform .3s var(--ease)}
+  .offer div:hover{border-color:var(--red);transform:translateY(-3px)}
+  .offer .k{font-family:var(--num);font-weight:800;color:var(--red);font-size:13px}
+  .offer h4{margin:8px 0 6px;font-size:16px;font-weight:700}
+  .offer p{margin:0;font-size:14px;color:var(--muted);line-height:1.6}
+
+  /* ---------- 02 EXPERIENCE (scroll timeline) ---------- */
+  #experience{background:var(--paper-2)}
+  .xp{position:relative;padding-left:44px}
+  .xp-rail{position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--line)}
+  .xp-fill{position:absolute;left:0;top:0;width:100%;height:0;background:var(--red)}
+  .xp-item{position:relative;display:grid;grid-template-columns:180px 1fr;gap:clamp(20px,3vw,48px);padding:0 0 48px}
+  .xp-item::before{content:"";position:absolute;left:-44px;top:6px;width:20px;height:20px;border-radius:50%;background:var(--paper-2);border:2px solid var(--line);transition:border-color .4s,background .4s,transform .4s var(--ease)}
+  .xp-item.on::before{border-color:var(--red);background:var(--red);box-shadow:inset 0 0 0 4px var(--paper-2)}
+  .xp-when{font-size:13px;color:var(--muted);padding-top:3px}
+  .xp-when .kind{display:inline-block;margin-top:10px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border:1px solid var(--ink);padding:3px 8px}
+  .xp-item.feature .kind{background:var(--red);border-color:var(--red);color:#fff}
+  .xp-box{background:#fff;border:1px solid var(--line);padding:clamp(22px,2.6vw,32px);transition:border-color .3s,box-shadow .3s}
+  .xp-item.feature .xp-box{border-top:3px solid var(--red)}
+  .xp-box:hover{box-shadow:0 18px 40px -24px rgba(0,0,0,.25)}
+  .xp-role{font-size:clamp(19px,1.9vw,23px);font-weight:700;letter-spacing:-.01em;margin:0;line-height:1.35}
+  .xp-org{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:16.5px;margin:4px 0 14px}
+  .xp ul{margin:0;padding:0;list-style:none}
+  .xp li{position:relative;padding-left:22px;margin-bottom:8px;color:var(--ink-2);font-size:15.5px}
+  .xp li::before{content:"";position:absolute;left:0;top:.78em;width:10px;height:2px;background:var(--red)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+
+  /* ---------- 03 PROCESS (editor timeline, dark) ---------- */
+  #process{background:#0F0F0F;color:#F1EFEA}
+  #process .sec-num{color:#8D8A83}
+  #process .sec-title{color:#fff}
+  #process .sec-kicker{color:#A9A69F}
+  .editor{border:1px solid #2A2A2A;background:#161616;border-radius:8px;overflow:hidden}
+  .editor-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid #2A2A2A;font-size:12px;color:#8D8A83}
+  .editor-bar .dots{display:flex;gap:6px}.editor-bar .dots i{width:10px;height:10px;border-radius:50%;background:#333}
+  .editor-bar .dots i:first-child{background:var(--red)}
+  .editor-bar .rec{display:flex;align-items:center;gap:8px;color:#fff;font-family:var(--num);font-weight:700;letter-spacing:.08em}
+  .editor-bar .rec::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);animation:blink 1.4s infinite}
+  @keyframes blink{50%{opacity:.25}}
+  .ruler{display:grid;grid-template-columns:repeat(5,1fr);padding:10px 18px 0;font-family:var(--num);font-weight:600;font-size:11px;color:#6F6C66}
+  .ruler span{border-left:1px solid #333;padding-left:6px}
+  .tracks{position:relative;padding:12px 18px 22px}
+  .track{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+  .clip-x{background:#222;border:1px solid #2F2F2F;border-radius:5px;padding:16px 16px 18px;min-height:170px;position:relative;transition:background .3s,border-color .3s}
+  .clip-x::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;border-radius:5px 5px 0 0;background:#3A3A3A;transition:background .3s}
+  .clip-x.lit{background:#2A1515;border-color:#5A2020}
+  .clip-x.lit::before{background:var(--red)}
+  .clip-x .n{font-family:var(--num);font-weight:800;font-size:12px;color:var(--red)}
+  .clip-x h4{margin:8px 0 6px;font-size:16.5px;color:#fff;font-weight:700}
+  .clip-x p{margin:0;font-size:13.5px;color:#A9A69F;line-height:1.6}
+  .audio{margin-top:6px;height:28px;border-radius:4px;background:repeating-linear-gradient(90deg,#3a3a3a 0 2px,transparent 2px 5px);opacity:.7;-webkit-mask:linear-gradient(90deg,#000,rgba(0,0,0,.4),#000,rgba(0,0,0,.5),#000)}
+  .playhead{position:absolute;top:0;bottom:0;left:18px;width:2px;background:var(--red);box-shadow:0 0 12px rgba(231,40,40,.6);pointer-events:none}
+  .playhead::before{content:"";position:absolute;top:-1px;left:-6px;border:7px solid transparent;border-top:9px solid var(--red)}
+  .script{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .script-card{border:1px solid #2A2A2A;padding:clamp(22px,3vw,32px);border-radius:8px;background:#141414}
+  .script-card h4{margin:0 0 4px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--red)}
+  .script-card .sub{font-family:var(--serif);font-style:italic;color:#8D8A83;margin:0 0 18px}
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:16px}
+  .flow span{font-size:13.5px;padding:7px 12px;background:#222;border:1px solid #333;color:#fff;border-radius:3px}
+  .flow span.r{background:var(--red);border-color:var(--red)}
+  .flow i{font-style:normal;color:#6F6C66}
+  .script-card p{margin:0;font-size:14.5px;color:#C9C6BE}
+  .script-card p .hl{color:#FF6B6B}
+
+  /* ---------- 04 PROJECTS (numbered cards) ---------- */
+  .projects{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:16px}
+  .proj{border:1px solid var(--line);padding:clamp(24px,2.6vw,34px);display:flex;flex-direction:column;position:relative;background:#fff;transition:transform .35s var(--ease),box-shadow .35s}
+  .proj:hover{transform:translateY(-4px);box-shadow:0 24px 50px -28px rgba(0,0,0,.3)}
+  .proj .big{font-family:var(--num);font-weight:900;font-size:clamp(56px,6vw,84px);line-height:.9;color:var(--red);letter-spacing:-.04em}
+  .proj .tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-weight:600}
+  .proj h3{font-family:var(--serif);font-weight:500;font-size:clamp(21px,2vw,26px);line-height:1.25;margin:10px 0 6px;letter-spacing:-.01em}
+  .proj .meta{font-size:13px;color:var(--muted);margin-bottom:14px}
+  .proj p{margin:0 0 10px;font-size:15px;color:var(--ink-2)}
+  .proj .why{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);font-size:13.5px}
+  .proj .why b{color:var(--red)}
+  .proj.star{background:var(--red);color:#fff;border-color:var(--red)}
+  .proj.star .big{color:#fff}
+  .proj.star .tag,.proj.star .meta{color:rgba(255,255,255,.8)}
+  .proj.star p{color:#fff}
+  .proj.star .why{border-top-color:rgba(255,255,255,.4)}
+  .proj.star .why b{color:#fff;text-decoration:underline;text-underline-offset:3px}
+  .medal{display:inline-block;background:#fff;color:var(--red);font-weight:700;font-size:12px;padding:3px 10px;border-radius:2px}
+
+  /* ---------- 05 GALLERY ---------- */
+  #gallery{background:var(--paper-2)}
+  .g-head-count{display:flex;align-items:baseline;gap:12px;margin-top:18px;color:var(--muted);font-size:14px}
+  .g-head-count .num{color:var(--red);font-size:44px;line-height:1}
+  .gallery{columns:3;column-gap:16px}
+  .g-item{break-inside:avoid;margin:0 0 16px;position:relative;overflow:hidden;cursor:zoom-in;background:#fff;padding:10px 10px 0;border:1px solid var(--line);transition:border-color .3s}
+  .g-item .ph{overflow:hidden;position:relative}
+  .g-item img{width:100%;height:auto;transition:transform .8s var(--ease)}
+  .g-item:hover{border-color:var(--red)}
+  .g-item:hover img{transform:scale(1.04)}
+  .g-item .idx{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-family:var(--num);font-weight:800;font-size:11px;padding:3px 7px;z-index:1}
+  .g-item figcaption{padding:12px 2px 14px;font-size:13.5px;line-height:1.45}
+  .g-item figcaption b{display:block;font-weight:700}
+  .g-item figcaption span{color:var(--muted);font-size:12.5px}
+  .g-item:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+  .lb{position:fixed;inset:0;background:rgba(10,10,10,.95);z-index:100;display:none;align-items:center;justify-content:center;padding:56px 72px}
+  .lb.open{display:flex}
+  .lb figure{margin:0;max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center}
+  .lb img{max-height:calc(100vh - 160px);max-width:100%;object-fit:contain}
+  .lb figcaption{color:#EDEBE5;font-size:14px;margin-top:14px;text-align:center}
+  .lb figcaption span{display:block;color:#9C9A93;font-size:12.5px}
+  .lb button{position:absolute;background:none;border:1px solid rgba(255,255,255,.25);color:#fff;width:46px;height:46px;font-size:20px;cursor:pointer;display:grid;place-items:center;transition:background .2s,border-color .2s}
+  .lb button:hover{background:var(--red);border-color:var(--red)}
+  .lb .x{top:18px;right:18px}
+  .lb .prev{left:16px;top:50%;transform:translateY(-50%)}
+  .lb .next{right:16px;top:50%;transform:translateY(-50%)}
+
+  /* ---------- 06 LEADERSHIP (sticky big stat) ---------- */
+  .lead-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,72px);align-items:start}
+  .lead-stat{position:sticky;top:110px;border-top:4px solid var(--red);padding-top:24px}
+  .lead-stat .num{display:block;color:var(--red);font-size:clamp(72px,9vw,128px);line-height:.95}
+  .lead-stat p{font-family:var(--serif);font-size:clamp(20px,2vw,26px);line-height:1.35;margin:14px 0 18px}
+  .lead-stat small{color:var(--muted);font-size:13px}
+  .lead-list{counter-reset:li}
+  .lead-item{padding:24px 0 24px 64px;border-top:1px solid var(--line);position:relative;counter-increment:li}
+  .lead-item:first-child{border-top:1px solid var(--ink)}
+  .lead-item::before{content:counter(li,decimal-leading-zero);position:absolute;left:0;top:24px;font-family:var(--num);font-weight:800;font-size:22px;color:var(--line);transition:color .3s}
+  .lead-item:hover::before{color:var(--red)}
+  .lead-item .top{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+  .lead-item h4{margin:0;font-size:17px;font-weight:700;line-height:1.4}
+  .lead-item .when{font-size:12.5px;color:var(--muted);white-space:nowrap}
+  .lead-item .org{font-family:var(--serif);font-style:italic;color:var(--muted);margin:2px 0 10px;font-size:15.5px}
+  .lead-item p{margin:0 0 6px;font-size:14.5px;color:var(--ink-2)}
+
+  /* ---------- 07 AWARDS (rank medals) ---------- */
+  #awards{background:var(--paper-2)}
+  .awards-sum{display:flex;gap:clamp(24px,5vw,64px);margin:-24px 0 48px;flex-wrap:wrap}
+  .awards-sum div{display:flex;align-items:baseline;gap:10px;font-size:14px;color:var(--muted)}
+  .awards-sum .num{color:var(--red);font-size:44px;line-height:1}
+  .awards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .aw-col{background:#fff;border:1px solid var(--line);padding:8px 22px 14px}
+  .aw-col h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin:0;padding:16px 0;font-weight:700;color:var(--red);border-bottom:2px solid var(--red)}
+  .aw{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:start}
+  .aw:last-child{border-bottom:0}
+  .medal-c{width:48px;height:48px;border-radius:50%;border:2px solid var(--red);color:var(--red);display:grid;place-items:center;font-family:var(--num);font-weight:800;font-size:12px;line-height:1.05;text-align:center}
+  .medal-c.fill{background:var(--red);color:#fff}
+  .medal-c.big{font-size:17px}
+  .aw b{display:block;font-weight:700;font-size:15px;line-height:1.45}
+  .aw span{display:block;color:var(--muted);font-size:13.5px;line-height:1.5;margin-top:3px}
+
+  /* ---------- 08 EDUCATION & SKILLS (certificate) ---------- */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
+  .cert{border:1px solid var(--line);padding:clamp(26px,3vw,40px);position:relative;background:#fff}
+  .cert::before{content:"";position:absolute;inset:8px;border:1px solid var(--line);pointer-events:none}
+  .cert .seal{position:absolute;right:28px;top:28px;width:74px;height:74px;border-radius:50%;border:2px dashed var(--red);color:var(--red);display:grid;place-items:center;text-align:center;font-family:var(--num);font-weight:800;font-size:10px;letter-spacing:.08em;line-height:1.3;transform:rotate(-12deg)}
+  .cert .label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:700}
+  .cert h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.4vw,30px);margin:10px 0 4px;line-height:1.2;max-width:80%}
+  .cert .org{color:var(--muted);margin:0 0 26px}
+  .scores{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .score{background:var(--red-tint);padding:18px 20px}
+  .score .num{display:block;font-size:clamp(40px,4.4vw,56px);color:var(--red);line-height:1}
+  .score span{font-size:13px;color:var(--ink-2);font-weight:600}
+  .cert ul{list-style:none;margin:20px 0 0;padding:0}
+  .cert li{font-size:14.5px;color:var(--ink-2);padding:10px 0 10px 22px;border-top:1px solid var(--line);position:relative}
+  .cert li::before{content:"✓";position:absolute;left:0;color:var(--red);font-weight:700}
+  .skills .label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:700;display:block;padding-bottom:14px;border-bottom:2px solid var(--red)}
+  .skill{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .skill .ic{width:44px;height:44px;border-radius:50%;background:var(--red-tint);display:grid;place-items:center;color:var(--red)}
+  .skill .ic svg{width:20px;height:20px}
+  .skill b{font-size:15.5px;font-weight:700;display:block;margin-bottom:4px}
+  .skill p{margin:0 0 10px;font-size:14.5px;color:var(--ink-2)}
+  .tools{display:flex;flex-wrap:wrap;gap:6px}
+
+  /* ---------- 09 COMMUNITY (red tint, places) ---------- */
+  #community{background:var(--red-tint)}
+  .social{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .soc{background:#fff;padding:clamp(22px,2.6vw,30px);border-bottom:4px solid var(--red)}
+  .soc .place{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--red);font-weight:600}
+  .soc .place svg{width:14px;height:14px;flex:none}
+  .soc h5{margin:12px 0 2px;font-size:18px;font-weight:700}
+  .soc .when{font-size:12.5px;color:var(--muted)}
+  .soc p{font-size:14.5px;color:var(--ink-2);margin:10px 0 0}
+
+  /* ---------- CONTACT (red) ---------- */
+  .contact{background:var(--red);color:#fff;padding:clamp(88px,12vw,150px) 0 44px;position:relative;overflow:hidden}
+  .contact::after{content:"S";position:absolute;right:-.08em;bottom:-.32em;font-family:var(--num);font-weight:900;font-size:clamp(300px,42vw,620px);line-height:1;color:rgba(255,255,255,.07);pointer-events:none}
+  .contact .wrap{position:relative;z-index:1}
+  .contact .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:12px;opacity:.9}
+  .contact .eyebrow::before{content:"";width:28px;height:2px;background:#fff}
+  .contact h2{font-family:var(--serif);font-weight:500;font-size:clamp(42px,7vw,96px);line-height:1.02;letter-spacing:-.025em;margin:26px 0 26px;max-width:980px}
+  .contact h2 em{font-style:italic;font-weight:400}
+  .contact p.lead{color:rgba(255,255,255,.9);font-size:18px;font-weight:300;max-width:620px;margin:0 0 48px}
+  .c-links{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.35)}
+  .c-links > *{padding:22px 20px 22px 0;display:block}
+  .c-links > * + *{padding-left:20px;border-left:1px solid rgba(255,255,255,.35)}
+  .c-links small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.75;margin-bottom:6px}
+  .c-links span{font-size:16px;font-weight:500;word-break:break-word}
+  .c-links a:hover span{text-decoration:underline;text-underline-offset:4px}
+  .c-cta{margin-top:44px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn-white{background:#fff;border-color:#fff;color:var(--red)}
+  .btn-white:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+  .btn-ghost{border-color:#fff;color:#fff}
+  .contact .btn-ghost:hover{background:#fff;color:var(--red)}
+  .pledge{margin-top:72px;padding-top:24px;border-top:1px solid rgba(255,255,255,.35);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13px;opacity:.85}
+  .pledge q{font-family:var(--serif);font-style:italic;font-size:15px;quotes:"“" "”"}
+
+  /* Reveal */
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.marquee-track,.apply-tag .dot,.editor-bar .rec::before{animation:none}.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:1024px){
+    .statband .wrap{grid-template-columns:repeat(3,1fr)}
+    .stat:nth-child(4)::before{display:none}
+    .projects{grid-template-columns:1fr 1fr}
+    .proj.star{grid-column:1/-1}
+    .awards{grid-template-columns:1fr 1fr}
+    .track,.ruler{grid-template-columns:repeat(3,1fr)}
+    .ruler span:nth-child(n+4){display:none}
+    .offer{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:860px){
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:#fff;border-bottom:1px solid var(--line);padding:8px var(--gutter) 20px}
+    .nav-links.open a{padding:12px 0;width:100%;font-size:16px;color:var(--ink);border-bottom:1px solid var(--line)}
+    .nav-links.open a.active::after{display:none}
+    .nav-links.open .btn{margin-top:16px;width:auto;padding:10px 16px;color:#fff}
+    .burger{display:block}
+    .intro-grid{grid-template-columns:1fr}
+    .portrait{max-width:420px;order:-1;margin-left:14px}
+    .sec-head,.about-grid,.xp-item{grid-template-columns:1fr;gap:12px}
+    .sec-num{padding-top:0}
+    .script,.two,.lead-grid{grid-template-columns:1fr}
+    .lead-stat{position:static}
+    .gallery{columns:2}
+    .c-links{grid-template-columns:1fr 1fr}
+    .c-links > *:nth-child(3){padding-left:0;border-left:0}
+    .c-links > *:nth-child(n+3){border-top:1px solid rgba(255,255,255,.35)}
+    .social{grid-template-columns:1fr}
+  }
+  @media (max-width:560px){
+    .corner{font-size:12px}
+    .corner-l{max-width:36%}
+    .corner-l br{display:none}
+    .corner-r{top:auto;bottom:clamp(150px,34vw,190px)}
+    .statband .wrap{grid-template-columns:1fr 1fr}
+    .stat::before{display:none}
+    .stat:last-child{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.3)}
+    .projects,.awards,.offer{grid-template-columns:1fr}
+    .track{grid-template-columns:1fr}
+    .ruler,.audio{display:none}
+    .clip-x{min-height:0}
+    .playhead{display:none}
+    .xp{padding-left:32px}
+    .xp-item::before{left:-32px;width:18px;height:18px}
+    .xp-rail{left:8px}
+    .lead-item{padding-left:48px}
+    .scores{grid-template-columns:1fr 1fr}
+    .cert .seal{width:60px;height:60px;font-size:8.5px;right:18px;top:18px}
+    .gallery{columns:1}
+    .c-links{grid-template-columns:1fr}
+    .c-links > *{padding-left:0 !important;border-left:0 !important;border-top:1px solid rgba(255,255,255,.35)}
+    .lb{padding:56px 12px}
+    .lb .prev,.lb .next{top:auto;bottom:16px;transform:none}
+  }
+
+  /* ---------- PRINT ---------- */
+  @media print{
+    @page{margin:14mm}
+    body{font-size:11pt}
+    .nav,.stage,.cta-row,.c-cta,#gallery,.lb,.burger,.playhead{display:none !important}
+    .rv{opacity:1;transform:none}
+    section.block{padding:26px 0}
+    #process{background:#fff;color:#000}
+    #process .sec-title,.clip-x h4,.flow span{color:#000}
+    .clip-x,.script-card,.editor{background:#fff;border-color:#ccc}
+    .lead-stat{position:static}
+    .xp-item,.lead-item,.aw,.proj,.clip-x,.soc{break-inside:avoid}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Về đầu trang"><span class="brand-mark">V</span>Nguyễn Thế Việt</a>
+    <nav class="nav-links" id="navLinks" aria-label="Điều hướng chính">
+      <a href="#about">Giới thiệu</a>
+      <a href="#experience">Kinh nghiệm</a>
+      <a href="#process">Quy trình</a>
+      <a href="#projects">Dự án</a>
+      <a href="#gallery">Hình ảnh</a>
+      <a href="#awards">Thành tích</a>
+      <a href="#contact" class="btn btn-red btn-sm">Liên hệ</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO: LANYARD BADGE ============ -->
+<section class="stage" id="stage" aria-label="Mở đầu">
+  <p class="corner corner-l">Tôi lên ý tưởng, viết kịch bản và kể <br/>chuyện bằng video ngắn. <a href="#intro">[xem thêm]</a></p>
+  <p class="corner corner-r">Đang học Phân tích dữ liệu lớn @ APD<br/>Ứng tuyển Content Creator — <span class="hl">S Channel</span></p>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Nguyễn Thế Việt</span><span class="sep">✳</span><span class="r">Content Creator</span><span class="sep">✳</span>
+      <span>Nguyễn Thế Việt</span><span class="sep">✳</span><span class="r">Content Creator</span><span class="sep">✳</span>
+    </div>
+  </div>
+
+  <svg class="strap" id="strap" aria-hidden="true">
+    <path id="strapShadow" class="strap-shadow" transform="translate(8 6)"/>
+    <path id="strapL" class="strap-line"/>
+    <path id="strapR" class="strap-line red"/>
+  </svg>
+
+  <div class="badge" id="badge" role="img" aria-label="Thẻ tên Nguyễn Thế Việt — Content Creator, có thể kéo thả">
+    <div class="clip"><span class="clip-ring"></span><span class="clip-hook"></span></div>
+    <div class="holder">
+      <span class="holder-slot"></span><span class="holder-hole l"></span><span class="holder-hole r"></span>
+      <div class="card">
+        <div class="card-body">
+          <div class="card-top">
+            <div class="card-name">Nguyễn<br/><em>Thế Việt</em></div>
+            <img class="card-photo" src="assets/avatar.jpg" alt="" draggable="false"/>
+          </div>
+          <div class="card-meta">
+            <small>Hiện tại</small>
+            <p>Content Creator · TikTok @viet_ngthe<br/>Google Student Ambassador</p>
+            <small>Từng đồng hành</small>
+            <div class="card-chips"><span class="r">VTV</span><span>Google</span><span>OPPO</span><span>ANESSA</span></div>
+          </div>
+        </div>
+        <div class="card-foot"><span>CONTENT CREATOR</span><span>2026</span></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="drag-hint" id="dragHint" aria-hidden="true">Kéo thẻ thử xem ↖</p>
+</section>
+
+<!-- ============ INTRO + RED STAT BAND ============ -->
+<section class="intro" id="intro">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div class="rv">
+        <div class="apply-tag"><span class="dot"></span>Ứng tuyển: Sáng tạo nội dung kênh TikTok (Part-time) — S Channel Network</div>
+        <h2>Kể chuyện bằng video ngắn, <em>tối ưu bằng dữ liệu.</em></h2>
+        <p class="lead">
+          Content Creator &amp; Scriptwriter. Tôi lên ý tưởng, viết kịch bản, quay và dựng video ngắn —
+          và với nền tảng <span class="hl">Phân tích dữ liệu lớn</span>, tôi đọc số liệu để video sau tốt hơn video trước.
+        </p>
+        <div class="cta-row">
+          <a href="#experience" class="btn btn-red">Xem kinh nghiệm <span aria-hidden="true">→</span></a>
+          <a href="https://www.tiktok.com/@viet_ngthe?lang=vi-VN" target="_blank" rel="noopener" class="btn">TikTok @viet_ngthe</a>
+        </div>
+      </div>
+      <figure class="portrait rv">
+        <img src="assets/avatar.jpg" alt="Chân dung Nguyễn Thế Việt" width="1050" height="1400" />
+        <figcaption><span>Hà Nội, Việt Nam</span><span>Học viện Chính sách &amp; Phát triển</span></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="statband" aria-label="Con số nổi bật">
+    <div class="wrap">
+      <div class="stat"><b class="num" data-to="4">0</b><span>Thương hiệu đã viết<br/>kịch bản KOC</span></div>
+      <div class="stat"><b class="num" data-to="3">0</b><span>Chương trình Đại sứ<br/>Google · OPPO · ANESSA</span></div>
+      <div class="stat"><b class="num" data-to="2000" data-group="1">0</b><span>Người theo dõi<br/>TikTok @viet_ngthe</span></div>
+      <div class="stat"><b class="num" data-to="1600" data-group="1" data-suffix="+">0</b><span>Sinh viên được đại diện<br/>đọc diễn văn tại Đền Hùng</span></div>
+      <div class="stat"><b class="num" data-to="6" data-dec="1">0</b><span>IELTS<br/>GPA 3.31</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 ABOUT — pull quote ============ -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num"><b>01</b>Giới thiệu</div>
+      <h2 class="sec-title">Một ý tưởng nhỏ trở thành video <em>chạm được người xem.</em></h2>
+    </div>
+    <div class="about-grid">
+      <aside class="side-note rv">
+        <p><span class="label">Hồ sơ</span>Sinh viên chuyên ngành Phân tích dữ liệu lớn<br/>Khoa Kinh tế số — APD</p>
+        <p><span class="label">Vị trí mong muốn</span>Sáng tạo nội dung TikTok<br/>Part-time · Hà Nội</p>
+      </aside>
+      <div class="about-text rv">
+        <p>Tôi là sinh viên chuyên ngành Phân tích dữ liệu lớn, Khoa Kinh tế số, Học viện Chính sách và Phát triển. Tôi đến với TikTok từ chính nhu cầu chia sẻ chuyện học của mình, rồi qua những lần làm đại sứ cho <span class="hl">Google, OPPO, ANESSA</span> và viết kịch bản KOC cho nhiều thương hiệu, tôi nhận ra điều mình thích nhất là khoảnh khắc một ý tưởng nhỏ trở thành video chạm được người xem.</p>
+
+        <blockquote class="pull">“Kênh cá nhân của tôi còn nhỏ so với mặt bằng chung, và tôi không giấu điều đó.”<small>Vì vậy tôi muốn học cách làm nội dung bài bản cùng S Channel</small></blockquote>
+
+        <p>Chính vì tự mày mò, dám thử sai một mình, tôi càng mong được làm việc trong một đội ngũ chuyên nghiệp như <span class="hl">S&nbsp;Channel</span> để học cách làm nội dung bài bản. Đổi lại, tôi mang đến:</p>
+
+        <div class="offer">
+          <div><span class="k">01</span><h4>Chăm chỉ</h4><p>Tự làm trọn quy trình một video, từ ý tưởng đến phụ đề.</p></div>
+          <div><span class="k">02</span><h4>Đúng giờ</h4><p>Quen làm việc theo lịch ghi hình và deadline của ê-kíp.</p></div>
+          <div><span class="k">03</span><h4>Trách nhiệm</h4><p>Chỉn chu với từng sản phẩm, dù là video 30 giây.</p></div>
+          <div><span class="k">04</span><h4>Đọc số liệu</h4><p>Excel, Power BI, Python để cùng team tìm hướng phát triển kênh.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 EXPERIENCE — scroll timeline ============ -->
+<section class="block" id="experience">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num"><b>02</b>Kinh nghiệm</div>
+      <div>
+        <h2 class="sec-title">Hành trình <em>sáng tạo nội dung.</em></h2>
+        <p class="sec-kicker">Từ trường quay VTV đến kênh TikTok cá nhân và kịch bản cho thương hiệu.</p>
+      </div>
+    </div>
+
+    <div class="xp" id="xp">
+      <div class="xp-rail"><div class="xp-fill" id="xpFill"></div></div>
+
+      <article class="xp-item feature">
+        <div class="xp-when">26/03 – 27/03/2026<br/><span class="kind">Truyền hình</span></div>
+        <div class="xp-box rv">
+          <h3 class="xp-role">Đại diện hình ảnh sinh viên — Quảng bá Học viện cùng <span class="hl">VTV</span></h3>
+          <p class="xp-org">Video quảng bá Học viện Chính sách và Phát triển, hợp tác cùng VTV</p>
+          <ul>
+            <li>Được Học viện lựa chọn làm <span class="hl">gương mặt đại diện sinh viên</span> trong video quảng bá hình ảnh nhà trường do VTV thực hiện.</li>
+            <li>Trực tiếp tham gia <span class="hl">hai ngày ghi hình</span> cùng ê-kíp truyền hình chuyên nghiệp: nhận kịch bản phân cảnh, diễn xuất và dẫn dắt trước ống kính, phối hợp theo chỉ đạo của đạo diễn và quay phim.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="xp-item feature">
+        <div class="xp-when">Hiện tại<br/><span class="kind">TikTok</span></div>
+        <div class="xp-box rv">
+          <h3 class="xp-role">Nhà sáng tạo nội dung — Kênh TikTok <a href="https://www.tiktok.com/@viet_ngthe?lang=vi-VN" target="_blank" rel="noopener" class="hl" style="text-decoration:underline;text-underline-offset:4px">@viet_ngthe</a></h3>
+          <p class="xp-org">Chia sẻ kinh nghiệm học tập và truyền cảm hứng cho sinh viên · <span class="hl">2.000 người theo dõi</span></p>
+          <ul>
+            <li>Tự thực hiện <span class="hl">trọn quy trình một video</span>: tìm ý tưởng từ trend và câu chuyện học tập thường ngày, viết kịch bản, quay, dựng và chèn phụ đề trên CapCut.</li>
+            <li>Xây dựng nội dung theo cấu trúc đặt vấn đề – dẫn dắt – chia sẻ – kêu gọi hành động, chú trọng <span class="hl">câu mở đầu để giữ chân người xem</span> ngay từ những giây đầu.</li>
+            <li>Theo dõi <span class="hl">lượt xem, lượt thích, lượt lưu</span> sau mỗi video để rút kinh nghiệm cho video tiếp theo.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="xp-item feature">
+        <div class="xp-when">Cộng tác theo dự án<br/><span class="kind">KOC Script</span></div>
+        <div class="xp-box rv">
+          <h3 class="xp-role">Người viết kịch bản video KOC</h3>
+          <div class="chips" style="margin-top:12px"><span class="chip r">ANESSA</span><span class="chip r">DOL English</span><span class="chip r">4English</span><span class="chip r">Học Bá HSK</span></div>
+          <ul>
+            <li>Viết kịch bản video ngắn <span class="hl">1–1,5 phút</span> theo định dạng chia sẻ trải nghiệm: đặt vấn đề → dẫn dắt → review sản phẩm → kêu gọi hành động nhẹ nhàng.</li>
+            <li>Kể chuyện ở ngôi thứ nhất, mở đầu bằng <span class="hl">hook hài hước, tự nhiên</span>; để thương hiệu xuất hiện khéo léo, không quảng cáo lộ liễu; dùng chi tiết <span class="hl">“callback”</span> đầu – cuối để người xem nhớ lâu.</li>
+            <li>Sản xuất thêm nội dung học tiếng Trung, rèn khả năng biến kiến thức khô thành video ngắn dễ xem.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="xp-item">
+        <div class="xp-when">02/2026 – Hiện tại<br/><span class="kind">Ambassador</span></div>
+        <div class="xp-box rv">
+          <h3 class="xp-role">Đại sứ Sinh viên — <span class="hl">Google Việt Nam</span></h3>
+          <p class="xp-org">Google Student Ambassador</p>
+          <ul>
+            <li>Đại diện Google tại trường, làm cầu nối giữa sinh viên với các chương trình và công nghệ của Google.</li>
+            <li>Phối hợp lên ý tưởng, điều phối và <span class="hl">trực tiếp dẫn dắt các buổi workshop</span> về công nghệ (đặc biệt là AI), lan tỏa giá trị chuyển đổi số tới cộng đồng sinh viên.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="xp-item">
+        <div class="xp-when">2026<br/><span class="kind">Ambassador</span></div>
+        <div class="xp-box rv">
+          <h3 class="xp-role">Đại sứ Thương hiệu Sinh viên — <span class="hl">ANESSA Việt Nam</span></h3>
+          <p class="xp-org">Anessa Students Ambassador</p>
+          <ul><li>Tham gia các chiến dịch truyền thông của ANESSA hướng tới <span class="hl">Gen Z</span>; sáng tạo hình ảnh và video trên mạng xã hội để tăng độ nhận diện cho các dòng sản phẩm mới.</li></ul>
+        </div>
+      </article>
+
+      <article class="xp-item">
+        <div class="xp-when">2025<br/><span class="kind">Ambassador</span></div>
+        <div class="xp-box rv">
+          <h3 class="xp-role">Đại sứ Thương hiệu Sinh viên — <span class="hl">OPPO Việt Nam</span></h3>
+          <p class="xp-org">NEXT TREND Ambassador</p>
+          <ul><li>Trực tiếp tham gia chiến dịch truyền thông của OPPO hướng tới <span class="hl">Gen Z</span>; sản xuất hình ảnh, video trên mạng xã hội cho các dòng sản phẩm mới.</li></ul>
+        </div>
+      </article>
+
+      <article class="xp-item">
+        <div class="xp-when">2024 – 2025<br/><span class="kind">Truyền thông</span></div>
+        <div class="xp-box rv">
+          <h3 class="xp-role">Đại sứ Truyền thông — Các dự án, sự kiện sinh viên</h3>
+          <div class="chips" style="margin-top:12px"><span class="chip">Hackathon Vietnam (GDG)</span><span class="chip">YouthSpeak Unitour 2025</span><span class="chip">Mini Leadership Conference 2024</span><span class="chip">Trạm Hiến Máu (NEU)</span><span class="chip">You Can (HV Tài chính)</span></div>
+          <ul>
+            <li>Lên kế hoạch và thực hiện chia sẻ, lan tỏa thông điệp sự kiện trên các nền tảng số.</li>
+            <li>Viết bài, sản xuất nội dung truyền thông, mở rộng mạng lưới tiếp cận tới <span class="hl">hàng nghìn sinh viên trên toàn quốc</span>.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 PROCESS — editing timeline ============ -->
+<section class="block" id="process">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num"><b>03</b>Quy trình</div>
+      <div>
+        <h2 class="sec-title">Cách tôi làm <em>một video ngắn.</em></h2>
+        <p class="sec-kicker">Năm bước, như năm đoạn clip trên một timeline dựng phim.</p>
+      </div>
+    </div>
+
+    <div class="editor rv" id="editor">
+      <div class="editor-bar"><span class="dots"><i></i><i></i><i></i></span><span>du-an_video-ngan.capcut</span><span class="rec">REC</span></div>
+      <div class="ruler"><span>00:00</span><span>00:03</span><span>00:15</span><span>00:45</span><span>01:00</span></div>
+      <div class="tracks">
+        <div class="track">
+          <div class="clip-x"><span class="n">01</span><h4>Ý tưởng</h4><p>Tìm từ <span class="hl">trend</span> đang lên và những câu chuyện học tập thường ngày.</p></div>
+          <div class="clip-x"><span class="n">02</span><h4>Kịch bản</h4><p>Viết <span class="hl">hook cho 3 giây đầu</span>, dựng mạch đặt vấn đề – dẫn dắt – chia sẻ – CTA.</p></div>
+          <div class="clip-x"><span class="n">03</span><h4>Quay</h4><p>Quay bằng điện thoại; diễn xuất và dẫn dắt trước ống kính.</p></div>
+          <div class="clip-x"><span class="n">04</span><h4>Dựng</h4><p>Dựng, chèn <span class="hl">phụ đề</span> và hiệu ứng trên CapCut; ảnh bìa trên Canva.</p></div>
+          <div class="clip-x"><span class="n">05</span><h4>Đo &amp; tối ưu</h4><p>Theo dõi <span class="hl">xem · thích · lưu</span>; rút kinh nghiệm cho video kế tiếp.</p></div>
+        </div>
+        <div class="audio" aria-hidden="true"></div>
+        <div class="playhead" id="playhead" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="script">
+      <div class="script-card rv">
+        <h4>Khung nội dung kênh cá nhân</h4>
+        <p class="sub">Chia sẻ học tập · truyền cảm hứng</p>
+        <div class="flow"><span class="r">Đặt vấn đề</span><i>→</i><span>Dẫn dắt</span><i>→</i><span>Chia sẻ</span><i>→</i><span>Kêu gọi hành động</span></div>
+        <p>Chú trọng <span class="hl">câu mở đầu</span> để giữ chân người xem ngay từ những giây đầu tiên.</p>
+      </div>
+      <div class="script-card rv">
+        <h4>Khung kịch bản KOC</h4>
+        <p class="sub">Chia sẻ trải nghiệm · 1–1,5 phút</p>
+        <div class="flow"><span class="r">Hook hài hước</span><i>→</i><span>Đặt vấn đề</span><i>→</i><span>Review sản phẩm</span><i>→</i><span>CTA nhẹ nhàng</span></div>
+        <p>Kể ở ngôi thứ nhất, thương hiệu xuất hiện khéo léo; chi tiết <span class="hl">“callback”</span> đầu – cuối giúp người xem nhớ lâu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 PROJECTS — numbered cards ============ -->
+<section class="block" id="projects">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num"><b>04</b>Dự án &amp; Nghiên cứu</div>
+      <div>
+        <h2 class="sec-title">Hiểu nền tảng <em>trước khi làm nội dung.</em></h2>
+        <p class="sec-kicker">Tôi nghiên cứu chính thuật toán TikTok mà mình đang làm nội dung trên đó.</p>
+      </div>
+    </div>
+
+    <div class="projects">
+      <article class="proj star rv">
+        <span class="big">01</span>
+        <span class="tag">Nghiên cứu khoa học · 2025–2026</span>
+        <h3>Tác động của thuật toán gợi ý tới hành vi mua hàng trên TikTok Shop</h3>
+        <div class="meta">Nhóm 4 thành viên · <span class="medal">Giải Nhì cấp Khoa</span></div>
+        <p>Khảo sát và phân tích bằng mô hình PLS-SEM theo khung S-O-R, tìm hiểu cách thuật toán đề xuất nội dung ảnh hưởng đến cảm xúc và quyết định mua của người dùng.</p>
+        <p class="why"><b>Ý nghĩa với công việc:</b> hiểu sâu cách TikTok phân phối video — nền tảng quan trọng khi lên ý tưởng và tối ưu nội dung cho kênh.</p>
+      </article>
+      <article class="proj rv">
+        <span class="big">02</span>
+        <span class="tag">Đại sứ Gen G 2026</span>
+        <h3>Dự án Ví Xanh</h3>
+        <div class="meta">Panasonic × GreenU · Nhóm 5 sinh viên</div>
+        <p>Cùng nhóm xây dựng dự án thu gom quần áo cũ và bã cà phê để tái chế theo mô hình <span class="hl">kinh tế tuần hoàn</span>, truyền thông lối sống xanh tới sinh viên.</p>
+        <p class="why"><b>Kỹ năng:</b> truyền thông chiến dịch, làm việc nhóm, kể chuyện có thông điệp xã hội.</p>
+      </article>
+      <article class="proj rv">
+        <span class="big">03</span>
+        <span class="tag">AI-Quantum Challenge 2026</span>
+        <h3>AURA RISK — Chấm điểm rủi ro tài chính</h3>
+        <div class="meta">Logistic Regression · Random Forest · React + Vite</div>
+        <p>Xây dựng web chấm điểm xác suất kiệt quệ tài chính của doanh nghiệp Việt Nam; dữ liệu chứng khoán qua vnstock.</p>
+        <p class="why"><b>Kỹ năng:</b> Python, mô hình hoá dữ liệu, tư duy sản phẩm số.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 GALLERY — polaroid wall ============ -->
+<section class="block" id="gallery">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num"><b>05</b>Hình ảnh</div>
+      <div>
+        <h2 class="sec-title">Khoảnh khắc <em>trước ống kính.</em></h2>
+        <div class="g-head-count"><b class="num" data-to="12">0</b>khoảnh khắc — bấm vào ảnh để xem lớn</div>
+      </div>
+    </div>
+
+    <div class="gallery" id="galleryGrid">
+      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">01</span><img src="assets/gallery-3.jpg" alt="Quảng bá Học viện cùng VTV" loading="lazy" width="787" height="1400"/></div><figcaption><b>Quảng bá Học viện cùng VTV</b><span>Gương mặt đại diện sinh viên · 03/2026</span></figcaption></figure>
+      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">02</span><img src="assets/gallery-1.jpg" alt="Google Student Ambassador" loading="lazy" width="646" height="1400"/></div><figcaption><b>Google Student Ambassador</b><span>Workshop AI &amp; chuyển đổi số</span></figcaption></figure>
+      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">03</span><img src="assets/gallery-6.jpg" alt="Giải Quý quân Take One" loading="lazy" width="787" height="1400"/></div><figcaption><b>Take One — Giải Quý quân</b><span>Cuộc thi Sản xuất Video Quảng cáo · Youth NEU Media</span></figcaption></figure>
+      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">04</span><img src="assets/gallery-2.jpg" alt="OPPO NEXT TREND Ambassador" loading="lazy" width="933" height="1400"/></div><figcaption><b>OPPO NEXT TREND Ambassador</b><span>Chiến dịch Gen Z · 2025</span></figcaption></figure>
+      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">05</span><img src="assets/extra-1.jpg" alt="Đại sứ truyền thông các sự kiện sinh viên" loading="lazy" width="933" height="1400"/></div><figcaption><b>Đại sứ Truyền thông</b><span>Hackathon Vietnam · You Can · các sự kiện sinh viên</span></figcaption></figure>
+      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">06</span><img src="assets/gallery-4.jpg" alt="Đọc diễn văn tại Đền Hùng" loading="lazy" width="1080" height="1350"/></div><figcaption><b>Đại diện 1.600+ sinh viên</b><span>Đọc diễn văn tại Đền Hùng · Vitri APD Military</span></figcaption></figure>
+      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">07</span><img src="assets/gallery-8.jpg" alt="MC sự kiện" loading="lazy" width="934" height="1400"/></div><figcaption><b>MC &amp; dẫn dắt sự kiện</b><span>Liên chi đoàn Khoa Kinh tế số · CLB AEC</span></figcaption></figure>
+      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">08</span><img src="assets/gallery-5.jpg" alt="Giải Triển vọng DBIC 2025" loading="lazy" width="1080" height="1350"/></div><figcaption><b>Giải Triển vọng — DBIC 2025</b><span>Cuộc thi Đột phá Kinh doanh số · ĐH Đại Nam</span></figcaption></figure>
+      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">09</span><img src="assets/gallery-9.jpg" alt="Phiên họp Quốc hội giả định" loading="lazy" width="933" height="1400"/></div><figcaption><b>Bộ trưởng Bộ Tài chính</b><span>Phiên họp Quốc hội giả định · 03/2026</span></figcaption></figure>
+      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">10</span><img src="assets/gallery-10.jpg" alt="Sinh viên tiêu biểu Khoa Kinh tế số" loading="lazy" width="933" height="1400"/></div><figcaption><b>Sinh viên hoạt động Xuất sắc</b><span>Khoa Kinh tế số · HK I 2025–2026</span></figcaption></figure>
+      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">11</span><img src="assets/gallery-11.jpg" alt="Destination through times" loading="lazy" width="1400" height="1400"/></div><figcaption><b>Destination through times — Giải Ba</b><span>Khoa Quản trị kinh doanh · APD</span></figcaption></figure>
+      <figure class="g-item rv" tabindex="0"><div class="ph"><span class="idx">12</span><img src="assets/gallery-7.jpg" alt="Hoạt động tình nguyện" loading="lazy" width="1080" height="1350"/></div><figcaption><b>Tình nguyện</b><span>Chiến dịch Thắp ĐUỐC · Nắng về trên bản</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Xem ảnh">
+  <button class="x" id="lbClose" aria-label="Đóng">✕</button>
+  <button class="prev" id="lbPrev" aria-label="Ảnh trước">←</button>
+  <figure><img id="lbImg" alt=""/><figcaption id="lbCap"></figcaption></figure>
+  <button class="next" id="lbNext" aria-label="Ảnh tiếp">→</button>
+</div>
+
+<!-- ============ 06 LEADERSHIP — sticky stat ============ -->
+<section class="block" id="leadership">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num"><b>06</b>Hoạt động &amp; Lãnh đạo</div>
+      <h2 class="sec-title">Sân khấu, micro <em>và đội nhóm.</em></h2>
+    </div>
+    <div class="lead-grid">
+      <aside class="lead-stat rv">
+        <b class="num" data-to="1600" data-group="1" data-suffix="+">0</b>
+        <p>sinh viên được tôi <span class="hl">đại diện đọc diễn văn</span> tại Đền Hùng.</p>
+        <small>Trưởng ban Phát thanh · Chuỗi sự kiện Vitri APD Military</small>
+      </aside>
+      <div class="lead-list">
+        <div class="lead-item rv">
+          <div class="top"><h4>Ban Chấp hành Liên chi đoàn Khoa Kinh tế số</h4><span class="when">Trong thời gian học ĐH</span></div>
+          <p class="org"><span class="hl">Phó ban Đổi mới sáng tạo</span> · Ban Chuyên môn · Ban Truyền thông &amp; MC</p>
+          <p>Tham gia xây dựng khung chương trình và định hướng chuyên môn cho các hoạt động của Khoa.</p>
+          <p>Trực tiếp điều phối các dự án đổi mới sáng tạo, sản xuất ấn phẩm truyền thông và <span class="hl">làm MC</span> dẫn dắt các sự kiện quan trọng.</p>
+        </div>
+        <div class="lead-item rv">
+          <div class="top"><h4>Trưởng ban Phát thanh &amp; Đại diện sinh viên</h4><span class="when">Vitri APD Military</span></div>
+          <p class="org">Chuỗi sự kiện Vitri APD Military</p>
+          <p>Quản lý kịch bản và chất lượng các buổi phát thanh trong khuôn khổ chương trình.</p>
+          <p>Vinh dự đại diện cho <span class="hl">hơn 1.600 sinh viên</span> đọc diễn văn tại Đền Hùng.</p>
+        </div>
+        <div class="lead-item rv">
+          <div class="top"><h4>Bộ trưởng Bộ Tài chính — Quốc hội giả định</h4><span class="when">03/2026</span></div>
+          <p class="org">Khoa Chính sách công — APD</p>
+          <p>Nghiên cứu, xây dựng luận điểm về ngân sách và kinh tế vĩ mô; <span class="hl">trực tiếp tranh biện</span>, bảo vệ chính sách trước hội đồng mô phỏng.</p>
+        </div>
+        <div class="lead-item rv">
+          <div class="top"><h4>Leader Team Sóng Biển</h4><span class="when">Chào tân sinh viên APD</span></div>
+          <p class="org">Đội đại diện Khoa Kinh tế số</p>
+          <p>Dẫn dắt đội đại diện Khoa, lên chiến lược thi đấu và gắn kết các thành viên trong đội.</p>
+        </div>
+        <div class="lead-item rv">
+          <div class="top"><h4>Lớp phó Lớp PTDLL15</h4><span class="when">Hiện tại</span></div>
+          <p>Hỗ trợ giảng viên quản lý lớp, đôn đốc tiến độ học tập và tổ chức hoạt động nội bộ cho các bạn sinh viên.</p>
+        </div>
+        <div class="lead-item rv">
+          <div class="top"><h4>Câu lạc bộ &amp; đội nhóm</h4><span class="when">APD</span></div>
+          <p><b>CLB AEC</b> (Truyền thông &amp; MC): MC sự kiện Christmas with AEC, hỗ trợ truyền thông đa nền tảng.</p>
+          <p><b>CLB ACC</b> (Phát thanh): xây dựng kịch bản, thu âm và phát sóng chuyên mục nội bộ.</p>
+          <p><b>Đội xúc tiến tuyển sinh:</b> giới thiệu ngành học tới học sinh và phụ huynh.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 AWARDS — medals ============ -->
+<section class="block" id="awards">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num"><b>07</b>Giải thưởng</div>
+      <h2 class="sec-title">Thành tích <em>&amp; ghi nhận.</em></h2>
+    </div>
+    <div class="awards-sum rv">
+      <div><b class="num" data-to="8">0</b>giải thưởng</div>
+      <div><b class="num" data-to="3">0</b>lĩnh vực: sáng tạo · học thuật · kinh doanh</div>
+    </div>
+    <div class="awards">
+      <div class="aw-col rv">
+        <h4>Sáng tạo &amp; Truyền thông</h4>
+        <div class="aw"><span class="medal-c fill big">3</span><div><b>Quý quân (Giải Ba) — Take One</b><span>Cuộc thi Sản xuất Video Quảng cáo · Youth NEU Media, bảo trợ bởi Đoàn TN ĐH Kinh tế Quốc dân. Thể hiện <span class="hl">tư duy hình ảnh, quay dựng và kể chuyện thương hiệu</span>.</span></div></div>
+        <div class="aw"><span class="medal-c">KK</span><div><b>Giải Khuyến khích — Inspire the Light 2026</b><span>Chung kết cuộc thi hùng biện và truyền cảm hứng · Khoa Luật kinh tế, APD</span></div></div>
+      </div>
+      <div class="aw-col rv">
+        <h4>Học thuật &amp; Ngôn ngữ</h4>
+        <div class="aw"><span class="medal-c fill big">1</span><div><b>Giải Nhất — “English and Technology: Partners in Progress”</b><span>Cuộc thi tọa đàm cấp Khoa · Khoa Kinh tế số, APD</span></div></div>
+        <div class="aw"><span class="medal-c fill big">2</span><div><b>Giải Nhì NCKH sinh viên cấp Khoa</b><span>Năm học 2025–2026 · đề tài thuật toán TikTok Shop</span></div></div>
+        <div class="aw"><span class="medal-c big">3</span><div><b>Giải Ba — Destination through times</b><span>Khoa Quản trị kinh doanh, APD</span></div></div>
+        <div class="aw"><span class="medal-c big">3</span><div><b>Giải Ba — APD English Contest</b><span>Khoa Ngôn ngữ Anh, APD</span></div></div>
+      </div>
+      <div class="aw-col rv">
+        <h4>Kinh doanh &amp; Khởi nghiệp</h4>
+        <div class="aw"><span class="medal-c fill">TOP<br/>28</span><div><b>Top 28 Chung kết toàn quốc — The Story of Leaders 2024</b><span>Hệ sinh thái MSOCE</span></div></div>
+        <div class="aw"><span class="medal-c">TV</span><div><b>Giải Triển vọng — DBIC 2025</b><span>Cuộc thi Đột phá Kinh doanh số · Khoa Kinh tế &amp; Quản lý, ĐH Đại Nam</span></div></div>
+        <div class="aw"><span class="medal-c">2026</span><div><b>Thí sinh Data Explorers 2026</b><span>Cuộc thi phân tích dữ liệu</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 EDUCATION & SKILLS — certificate ============ -->
+<section class="block" id="education">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num"><b>08</b>Học vấn &amp; Kỹ năng</div>
+      <h2 class="sec-title">Nền tảng dữ liệu, <em>tư duy nội dung.</em></h2>
+    </div>
+    <div class="two">
+      <div class="cert rv">
+        <div class="seal">SINH VIÊN<br/>XUẤT SẮC<br/>HK I</div>
+        <span class="label">Học vấn &amp; Chứng chỉ</span>
+        <h3>Học viện Chính sách và Phát triển</h3>
+        <p class="org">Khoa Kinh tế số — Chuyên ngành Phân tích dữ liệu lớn · Đang theo học</p>
+        <div class="scores">
+          <div class="score"><b class="num" data-to="3.31" data-dec="2">0</b><span>GPA</span></div>
+          <div class="score"><b class="num" data-to="6" data-dec="1">0</b><span>IELTS</span></div>
+        </div>
+        <ul>
+          <li>Sinh viên Khoa Kinh tế số có thành tích hoạt động <span class="hl">Xuất sắc học kỳ I</span> năm học 2025–2026.</li>
+          <li>Hoàn thành khóa học <i>Foundations: Data, Data, Everywhere</i> (Coursera).</li>
+        </ul>
+      </div>
+      <div class="skills rv">
+        <span class="label">Kỹ năng</span>
+        <div class="skill"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4V8z"/></svg></span><div><b>Sản xuất video</b><p>Lên ý tưởng, viết kịch bản video ngắn, quay bằng điện thoại, dựng trên CapCut.</p><div class="tools"><span class="chip r">CapCut</span><span class="chip">Kịch bản</span><span class="chip">Diễn xuất</span><span class="chip">Phụ đề</span></div></div></div>
+        <div class="skill"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></span><div><b>Bắt trend &amp; phân tích kênh</b><p>Theo dõi hiệu quả nội dung bằng công cụ dữ liệu.</p><div class="tools"><span class="chip r">Excel</span><span class="chip r">Power BI</span><span class="chip r">Python</span></div></div></div>
+        <div class="skill"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5"/></svg></span><div><b>Giao tiếp &amp; làm việc nhóm</b><p>MC, hùng biện, tranh biện, dẫn workshop; phối hợp tốt trong các nhóm dự án đông người.</p></div></div>
+        <div class="skill"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><div><b>Công cụ khác</b><div class="tools"><span class="chip">Canva</span><span class="chip">PowerPoint</span><span class="chip">Microsoft Office</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 COMMUNITY — places ============ -->
+<section class="block" id="community">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num"><b>09</b>Hoạt động xã hội</div>
+      <h2 class="sec-title">Trách nhiệm <em>với cộng đồng.</em></h2>
+    </div>
+    <div class="social">
+      <div class="soc rv"><span class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Võ Nhai, Thái Nguyên</span><h5>Chiến dịch Thắp ĐUỐC</h5><span class="when">Tình nguyện viên · 2025</span><p>Chuẩn bị, gây quỹ và vận chuyển quà tới điểm trường THCS Mộc Châu cho các em có hoàn cảnh khó khăn.</p></div>
+      <div class="soc rv"><span class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Nghĩa Lộ, Lào Cai</span><h5>“Nắng về trên bản”</h5><span class="when">CTV, Tình nguyện viên · 2026</span><p>Chuẩn bị, gây quỹ và trao quà tới hộ gia đình, các em nhỏ có hoàn cảnh khó khăn tại bản làng.</p></div>
+      <div class="soc rv"><span class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 4a1.5 1.5 0 1 0 0 .01M7 21l3-6 3 2 1-5 3 3h3M10 9l3-2 2 3"/></svg>Chạy gây quỹ</span><h5>IRONRUN</h5><span class="when">Runner · 2025</span><p>Chạy việt dã gây quỹ ủng hộ người khuyết tật, lan tỏa lối sống lành mạnh và trách nhiệm với cộng đồng.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT — red ============ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow rv">Liên hệ</p>
+    <h2 class="rv">Rất mong được trao đổi <em>trực tiếp cùng S&nbsp;Channel.</em></h2>
+    <p class="lead rv">Sẵn sàng làm part-time tại Hà Nội, tham gia ghi hình theo lịch của team và bắt đầu sớm.</p>
+
+    <div class="c-links rv">
+      <a href="mailto:nguyenthevietk76@gmail.com"><small>Email</small><span>nguyenthevietk76@gmail.com</span></a>
+      <a href="https://www.tiktok.com/@viet_ngthe?lang=vi-VN" target="_blank" rel="noopener"><small>TikTok</small><span>@viet_ngthe</span></a>
+      <a href="https://www.facebook.com/nguyen.the.viet.220884" target="_blank" rel="noopener"><small>Facebook</small><span>Nguyễn Thế Việt</span></a>
+      <div><small>Địa điểm</small><span>Hà Nội, Việt Nam</span></div>
+    </div>
+
+    <div class="c-cta rv">
+      <a href="mailto:nguyenthevietk76@gmail.com?subject=S%20Channel%20-%20Trao%20%C4%91%E1%BB%95i%20v%E1%BB%9Bi%20Nguy%E1%BB%85n%20Th%E1%BA%BF%20Vi%E1%BB%87t" class="btn btn-white">Gửi email <span aria-hidden="true">→</span></a>
+      <button type="button" class="btn btn-ghost" id="printBtn">Lưu trang dạng PDF</button>
+    </div>
+
+    <div class="pledge">
+      <q>Tôi xin cam đoan những thông tin trên là đúng sự thật.</q>
+      <span>© 2026 Nguyễn Thế Việt · Hà Nội</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav=document.getElementById('nav'),stageEl=document.getElementById('stage'),prog=document.getElementById('progress');
+  var xp=document.getElementById('xp'),xpFill=document.getElementById('xpFill'),xpItems=[].slice.call(document.querySelectorAll('.xp-item'));
+
+  // ---------- Scroll: nav, progress, experience rail ----------
+  var ticking=false;
+  function onScroll(){
+    if(ticking)return;ticking=true;
+    requestAnimationFrame(function(){
+      ticking=false;
+      var y=window.scrollY,h=document.documentElement.scrollHeight-innerHeight;
+      nav.classList.toggle('show',y>stageEl.offsetHeight*0.75);
+      prog.style.width=(h>0?y/h*100:0)+'%';
+      var r=xp.getBoundingClientRect(),mid=innerHeight*0.55;
+      var p=Math.max(0,Math.min(1,(mid-r.top)/r.height));
+      xpFill.style.height=(p*100)+'%';
+      xpItems.forEach(function(it){it.classList.toggle('on',it.getBoundingClientRect().top+10<mid)});
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // ---------- Count-up numbers ----------
+  function fmt(v,el){
+    var dec=+(el.dataset.dec||0),s=v.toFixed(dec);
+    if(el.dataset.group){s=Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
+    return s+(el.dataset.suffix||'');
+  }
+  function countUp(el){
+    var to=parseFloat(el.dataset.to),dur=1600,t0=null;
+    if(reduce){el.textContent=fmt(to,el);return}
+    function f(t){
+      if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);
+      el.textContent=fmt(to*e,el);
+      if(k<1)requestAnimationFrame(f);
+    }
+    requestAnimationFrame(f);
+  }
+  var nums=[].slice.call(document.querySelectorAll('.num[data-to]'));
+
+  if('IntersectionObserver' in window){
+    var secObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          document.querySelectorAll('.nav-links a[href^="#"]').forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id && !a.classList.contains('btn'))});
+        }
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('main section[id]').forEach(function(s){secObs.observe(s)});
+
+    var rvObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rvObs.unobserve(e.target)}});
+    },{rootMargin:'0px 0px -8% 0px',threshold:.05});
+    document.querySelectorAll('.rv').forEach(function(el){rvObs.observe(el)});
+
+    var numObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){countUp(e.target);numObs.unobserve(e.target)}});
+    },{threshold:.6});
+    nums.forEach(function(n){numObs.observe(n)});
+  } else {
+    document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+    nums.forEach(function(n){n.textContent=fmt(parseFloat(n.dataset.to),n)});
+  }
+
+  // ---------- Process playhead ----------
+  (function(){
+    var ed=document.getElementById('editor'),ph=document.getElementById('playhead'),clips=[].slice.call(ed.querySelectorAll('.clip-x')),track=ed.querySelector('.track');
+    var on=false,t0=null,DUR=9000;
+    function frame(t){
+      if(!on){t0=null;return}
+      if(!t0)t0=t;var k=((t-t0)%DUR)/DUR,w=track.offsetWidth,x=k*w;
+      ph.style.transform='translateX('+x.toFixed(1)+'px)';
+      var idx=Math.floor(k*clips.length);
+      clips.forEach(function(c,i){c.classList.toggle('lit',i===idx)});
+      requestAnimationFrame(frame);
+    }
+    if(reduce){clips[0].classList.add('lit');return}
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){var v=en[0].isIntersecting;if(v&&!on){on=true;requestAnimationFrame(frame)}on=v}).observe(ed);
+    }
+  })();
+
+  // ---------- Mobile menu ----------
+  var burger=document.getElementById('burger'),menu=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');burger.setAttribute('aria-expanded',open);document.body.classList.toggle('menu-open',open);
+  });
+  menu.addEventListener('click',function(e){if(e.target.tagName==='A'){menu.classList.remove('open');burger.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open')}});
+
+  // ---------- Lightbox ----------
+  var items=[].slice.call(document.querySelectorAll('.g-item'));
+  var lb=document.getElementById('lb'),img=document.getElementById('lbImg'),cap=document.getElementById('lbCap');
+  var idx=0,lastFocus=null;
+  function show(i){
+    idx=(i+items.length)%items.length;
+    var src=items[idx].querySelector('img');
+    img.src=src.src;img.alt=src.alt;
+    cap.innerHTML=items[idx].querySelector('figcaption').innerHTML;
+  }
+  function open(i){lastFocus=document.activeElement;show(i);lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lbClose').focus()}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
+  items.forEach(function(el,i){
+    el.addEventListener('click',function(){open(i)});
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i)}});
+  });
+  document.getElementById('lbClose').addEventListener('click',close);
+  document.getElementById('lbPrev').addEventListener('click',function(){show(idx-1)});
+  document.getElementById('lbNext').addEventListener('click',function(){show(idx+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')show(idx-1);
+    if(e.key==='ArrowRight')show(idx+1);
+  });
+
+  // ---------- Print ----------
+  document.getElementById('printBtn').addEventListener('click',function(){
+    document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+    nums.forEach(function(n){n.textContent=fmt(parseFloat(n.dataset.to),n)});
+    window.print();
+  });
+
+  // ---------- Lanyard badge (verlet rope + damped rigid badge) ----------
+  (function(){
+    var stage=stageEl,badge=document.getElementById('badge');
+    var pL=document.getElementById('strapL'),pR=document.getElementById('strapR'),pS=document.getElementById('strapShadow');
+    var hint=document.getElementById('dragHint');
+    var N=14,pts=[],seg=0,anchor={x:0,y:0},spread=0,W=0,H=0,bw=0,ropeLen=0;
+    var drag=null,angle=0,angVel=0,running=true,lastT=0,acc=0,idleFrames=0;
+    var G=0.42,DAMP=0.955,STEP=1000/120,MAXA=0.5;
+
+    function setup(first){
+      W=stage.clientWidth;H=stage.clientHeight;bw=badge.offsetWidth;
+      anchor={x:W/2,y:-30};
+      spread=Math.max(16,bw*0.11);
+      ropeLen=Math.max(120,H*0.36);
+      seg=ropeLen/(N-1);
+      var swing=first&&!reduce?Math.min(0.28,Math.asin(Math.min(1,W*0.16/ropeLen))):0;
+      pts=[];
+      for(var i=0;i<N;i++){
+        var t=i/(N-1),x=anchor.x+Math.sin(swing)*ropeLen*t,y=anchor.y+Math.cos(swing)*ropeLen*t;
+        pts.push({x:x,y:y,px:x,py:y});
+      }
+      angle=0;angVel=0;
+    }
+    function step(){
+      for(var i=1;i<N;i++){
+        var p=pts[i],vx=(p.x-p.px)*DAMP,vy=(p.y-p.py)*DAMP;
+        p.px=p.x;p.py=p.y;p.x+=vx;p.y+=vy+G;
+      }
+      if(drag){ // ease the grabbed end toward the pointer — no snapping
+        var e0=pts[N-1];e0.x+=(drag.tx-e0.x)*0.35;e0.y+=(drag.ty-e0.y)*0.35;
+      }
+      for(var k=0;k<20;k++){
+        pts[0].x=anchor.x;pts[0].y=anchor.y;
+        for(var j=0;j<N-1;j++){
+          var a=pts[j],b=pts[j+1],dx=b.x-a.x,dy=b.y-a.y,d=Math.sqrt(dx*dx+dy*dy)||1e-4,diff=(d-seg)/d;
+          var wa=j===0?0:0.5,wb=(drag&&j+1===N-1)?0:(j===0?1:0.5),s=wa+wb;
+          if(!s)continue;
+          a.x+=dx*diff*wa/s;a.y+=dy*diff*wa/s;b.x-=dx*diff*wb/s;b.y-=dy*diff*wb/s;
+        }
+      }
+      // badge angle: follow overall rope direction (stable), heavily damped, clamped
+      var e=pts[N-1],m=pts[Math.floor(N*0.45)];
+      var target=Math.atan2(-(e.x-m.x),Math.max(1,e.y-m.y))*0.85;
+      target=Math.max(-MAXA,Math.min(MAXA,target));
+      angVel+=(target-angle)*0.035;angVel*=0.82;angle+=angVel;
+    }
+    function strand(off){
+      var d='',prev=null;
+      for(var i=0;i<N;i++){
+        var t=1-i/(N-1),k=t*t,x=pts[i].x+off*k,y=pts[i].y;
+        if(i===0){d='M'+x.toFixed(1)+' '+y.toFixed(1)}
+        else{d+=' Q'+prev.x.toFixed(1)+' '+prev.y.toFixed(1)+' '+((prev.x+x)/2).toFixed(1)+' '+((prev.y+y)/2).toFixed(1)}
+        prev={x:x,y:y};
+      }
+      return d+' L'+prev.x.toFixed(1)+' '+prev.y.toFixed(1);
+    }
+    function render(){
+      var e=pts[N-1];
+      badge.style.transform='translate3d('+(e.x-bw/2).toFixed(2)+'px,'+(e.y-4).toFixed(2)+'px,0) rotate('+angle.toFixed(4)+'rad)';
+      pL.setAttribute('d',strand(-spread));pR.setAttribute('d',strand(spread));pS.setAttribute('d',strand(0));
+      if(hint&&!hint.classList.contains('hide'))hint.style.transform='translate('+(e.x+bw/2+18)+'px,'+(e.y+bw*0.55)+'px)';
+    }
+    function energy(){var s=0;for(var i=1;i<N;i++){s+=Math.abs(pts[i].x-pts[i].px)+Math.abs(pts[i].y-pts[i].py)}return s+Math.abs(angVel)*100}
+    function loop(t){
+      if(!running){lastT=0;return}
+      if(!lastT)lastT=t;acc+=Math.min(50,t-lastT);lastT=t;
+      while(acc>=STEP){step();acc-=STEP}
+      render();
+      // sleep when settled to save battery; wake on interaction
+      idleFrames=(!drag&&energy()<0.02)?idleFrames+1:0;
+      if(idleFrames>90){running=false;lastT=0;return}
+      requestAnimationFrame(loop);
+    }
+    function wake(){if(!running){running=true;idleFrames=0;acc=0;requestAnimationFrame(loop)}}
+    function pos(ev){var r=stage.getBoundingClientRect();return{x:ev.clientX-r.left,y:ev.clientY-r.top}}
+    badge.addEventListener('pointerdown',function(ev){
+      var p=pos(ev),e=pts[N-1];
+      drag={ox:p.x-e.x,oy:p.y-e.y,tx:e.x,ty:e.y};
+      badge.setPointerCapture(ev.pointerId);badge.classList.add('dragging');
+      if(hint)hint.classList.add('hide');
+      wake();ev.preventDefault();
+    });
+    badge.addEventListener('pointermove',function(ev){
+      if(!drag)return;var p=pos(ev),tx=p.x-drag.ox,ty=p.y-drag.oy;
+      var dx=tx-anchor.x,dy=ty-anchor.y,d=Math.sqrt(dx*dx+dy*dy),max=ropeLen*1.02;
+      if(d>max){tx=anchor.x+dx/d*max;ty=anchor.y+dy/d*max}
+      drag.tx=Math.max(bw*0.3,Math.min(W-bw*0.3,tx));drag.ty=Math.max(40,Math.min(H-60,ty));
+    });
+    function release(){if(!drag)return;drag=null;badge.classList.remove('dragging');wake()}
+    badge.addEventListener('pointerup',release);badge.addEventListener('pointercancel',release);
+
+    var rt,lastW=stage.clientWidth;
+    window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){
+      if(stage.clientWidth!==lastW||Math.abs(stage.clientHeight-H)>160){lastW=stage.clientWidth;setup(false);wake()}
+    },120)});
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){if(en[0].isIntersecting)wake();else running=false}).observe(stage);
+    }
+    setup(true);
+    if(reduce){for(var i=0;i<600;i++)step()}
+    render();requestAnimationFrame(loop);
+    setTimeout(function(){if(hint)hint.classList.add('hide')},9000);
+  })();
+})();
+</script>
+</body>
+</html>

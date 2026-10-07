@@ -1,0 +1,3565 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nguyễn Thế Việt — Digital Strategist & Content Creator</title>
+  <meta name="description" content="Portfolio của Nguyễn Thế Việt — Digital Strategist & Content Creator tại Hà Nội. Turning ideas into impact." />
+  <meta property="og:title" content="Nguyễn Thế Việt — Digital Strategist & Content Creator" />
+  <meta property="og:description" content="Turning ideas into impact." />
+  <meta name="theme-color" content="#003DA5" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — CSS CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      /* Brand Colors */
+      --color-primary:      #003DA5;
+      --color-primary-dark: #002778;
+      --color-primary-light:#1a5fd4;
+      --color-accent:       #FFD700;
+      --color-accent-dark:  #e6c200;
+      --color-surface:      #F7F8FA;
+      --color-surface-2:    #EEF1F8;
+      --color-text:         #1A1A2E;
+      --color-text-muted:   #5A6070;
+      --color-text-light:   #8892A4;
+      --color-white:        #FFFFFF;
+      --color-card:         #FFFFFF;
+      --color-border:       rgba(0, 61, 165, 0.12);
+
+      /* Typography */
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Be Vietnam Pro', system-ui, sans-serif;
+      --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+      /* Spacing (8px grid) */
+      --space-1:  8px;
+      --space-2:  16px;
+      --space-3:  24px;
+      --space-4:  32px;
+      --space-5:  40px;
+      --space-6:  48px;
+      --space-8:  64px;
+      --space-10: 80px;
+      --space-12: 96px;
+      --space-16: 128px;
+
+      /* Radius */
+      --radius-sm:   8px;
+      --radius-md:   16px;
+      --radius-lg:   24px;
+      --radius-xl:   40px;
+      --radius-full: 9999px;
+
+      /* Shadows */
+      --shadow-sm:   0 2px 8px rgba(0,61,165,0.08);
+      --shadow-md:   0 8px 32px rgba(0,61,165,0.14);
+      --shadow-lg:   0 20px 60px rgba(0,61,165,0.18);
+      --shadow-xl:   0 32px 80px rgba(0,61,165,0.22);
+      --shadow-accent: 0 8px 32px rgba(255,215,0,0.4);
+
+      /* Transitions */
+      --transition-fast:   0.18s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-base:   0.32s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow:   0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+      /* Nav height */
+      --nav-h: 72px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--color-surface);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul, ol { list-style: none; }
+
+    button {
+      font-family: var(--font-body);
+      cursor: none;
+      border: none;
+      background: none;
+    }
+
+    /* ============================================================
+       CUSTOM CURSOR
+    ============================================================ */
+    #cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.05s linear;
+    }
+
+    #cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--color-primary);
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: all 0.15s ease-out;
+      opacity: 0.7;
+    }
+
+    body:hover #cursor-dot,
+    body:hover #cursor-ring { opacity: 1; }
+
+    /* ============================================================
+       INTRO SCREEN
+    ============================================================ */
+    #intro-screen {
+      position: fixed;
+      inset: 0;
+      background: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9000;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    #intro-screen .initials {
+      font-family: var(--font-display);
+      font-size: clamp(80px, 15vw, 160px);
+      font-weight: 900;
+      color: var(--color-accent);
+      letter-spacing: -4px;
+      animation: introReveal 1.2s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+
+    #intro-screen .intro-tagline {
+      font-family: var(--font-mono);
+      font-size: clamp(12px, 1.5vw, 16px);
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      animation: introReveal 1.2s 0.2s cubic-bezier(0.16,1,0.3,1) forwards;
+      opacity: 0;
+    }
+
+    @keyframes introReveal {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    #intro-screen.fade-out {
+      animation: introFadeOut 0.6s 0.3s ease forwards;
+    }
+
+    @keyframes introFadeOut {
+      to { opacity: 0; pointer-events: none; visibility: hidden; }
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      padding: 0 var(--space-5);
+      transition: background var(--transition-base), box-shadow var(--transition-base), backdrop-filter var(--transition-base);
+    }
+
+    #navbar.scrolled {
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--color-border), var(--shadow-sm);
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--color-white);
+      transition: color var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+
+    #navbar.scrolled .nav-logo { color: var(--color-primary); }
+
+    .nav-logo span {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%       { transform: scale(1.4); opacity: 0.7; }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.5px;
+      transition: color var(--transition-fast);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--color-accent);
+      transition: width var(--transition-base);
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-links a.active { color: var(--color-accent); }
+
+    #navbar.scrolled .nav-links a {
+      color: var(--color-text-muted);
+    }
+
+    #navbar.scrolled .nav-links a.active,
+    #navbar.scrolled .nav-links a:hover {
+      color: var(--color-primary);
+    }
+
+    .nav-cta {
+      padding: var(--space-1) var(--space-3);
+      background: var(--color-accent);
+      color: var(--color-primary) !important;
+      font-weight: 700 !important;
+      border-radius: var(--radius-full);
+      font-size: 13px !important;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast) !important;
+    }
+
+    .nav-cta:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-accent);
+    }
+
+    .nav-cta:active { transform: scale(0.97); }
+    .nav-cta::after { display: none !important; }
+
+    /* Hamburger */
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: var(--space-1);
+    }
+
+    .nav-burger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--color-white);
+      border-radius: 2px;
+      transition: all var(--transition-base);
+    }
+
+    #navbar.scrolled .nav-burger span { background: var(--color-primary); }
+
+    /* Mobile nav */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--color-primary);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+    }
+
+    .nav-mobile.open {
+      display: flex;
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .nav-mobile a {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--color-white);
+      font-weight: 700;
+      transition: color var(--transition-fast);
+    }
+
+    .nav-mobile a:hover { color: var(--color-accent); }
+
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, #1a5fd4 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: calc(var(--nav-h) + var(--space-8)) var(--space-5) var(--space-16);
+    }
+
+    /* Abstract brand shapes */
+    .hero-shape {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-shape-1 {
+      width: clamp(400px, 60vw, 800px);
+      height: clamp(400px, 60vw, 800px);
+      top: -20%;
+      right: -15%;
+      background: radial-gradient(circle, rgba(255,215,0,0.12) 0%, transparent 70%);
+      animation: floatShape 8s ease-in-out infinite;
+    }
+
+    .hero-shape-2 {
+      width: clamp(200px, 30vw, 400px);
+      height: clamp(200px, 30vw, 400px);
+      bottom: 10%;
+      left: -5%;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      animation: floatShape 10s 2s ease-in-out infinite reverse;
+    }
+
+    .hero-shape-3 {
+      width: clamp(100px, 15vw, 200px);
+      height: clamp(100px, 15vw, 200px);
+      top: 25%;
+      left: 20%;
+      background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, transparent 70%);
+      animation: floatShape 6s 1s ease-in-out infinite;
+    }
+
+    /* Grid overlay */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    @keyframes floatShape {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-30px) scale(1.04); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: 6px var(--space-2);
+      background: rgba(255,215,0,0.15);
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-4);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--color-accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 88px);
+      font-weight: 900;
+      color: var(--color-white);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: var(--space-3);
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--color-accent);
+    }
+
+    .hero-role {
+      font-size: clamp(18px, 2.5vw, 26px);
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      margin-bottom: var(--space-4);
+      letter-spacing: 0.5px;
+    }
+
+    .hero-tagline-wrap {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-6);
+    }
+
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 3vw, 28px);
+      font-style: italic;
+      color: var(--color-accent);
+      overflow: hidden;
+      border-right: 3px solid var(--color-accent);
+      white-space: nowrap;
+      animation:
+        typing 2.5s steps(30, end) 1.5s forwards,
+        blink 0.8s step-end infinite;
+      width: 0;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: var(--color-accent); }
+      50%       { border-color: transparent; }
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: 14px var(--space-4);
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 15px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+      letter-spacing: 0.3px;
+    }
+
+    .btn:hover  { transform: scale(1.03); }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: var(--color-primary);
+      box-shadow: 0 4px 20px rgba(255,215,0,0.35);
+    }
+
+    .btn-primary:hover { box-shadow: var(--shadow-accent); }
+
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.4);
+      color: var(--color-white);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.7);
+      box-shadow: 0 4px 20px rgba(255,255,255,0.15);
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: var(--space-5);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-1);
+      color: rgba(255,255,255,0.4);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      animation: bounceDown 2s ease-in-out infinite;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ============================================================
+       WAVE / DIAGONAL DIVIDERS
+    ============================================================ */
+    .wave-divider {
+      line-height: 0;
+      overflow: hidden;
+    }
+
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+    }
+
+    /* ============================================================
+       SECTION SHARED STYLES
+    ============================================================ */
+    section {
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: var(--space-16) var(--space-5);
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--color-primary);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 32px; height: 2px;
+      background: var(--color-accent);
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.15;
+      letter-spacing: -1px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--color-primary);
+    }
+
+    .section-header {
+      margin-bottom: var(--space-8);
+    }
+
+    /* Scroll-reveal base */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ============================================================
+       ABOUT SECTION
+    ============================================================ */
+    #about {
+      background: var(--color-white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-12);
+      align-items: center;
+    }
+
+    .about-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .avatar-ring {
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 2px dashed var(--color-accent);
+      animation: spinSlow 20s linear infinite;
+    }
+
+    @keyframes spinSlow {
+      to { transform: rotate(360deg); }
+    }
+
+    .avatar-ring-2 {
+      position: absolute;
+      inset: -20px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+    }
+
+    .avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 50%, var(--color-accent) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 900;
+      color: var(--color-white);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Ảnh cá nhân thật — khi có file avatar.jpg */
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    /* Fallback initials — hiện khi chưa có ảnh */
+    .avatar-initials {
+      position: relative;
+      z-index: 0;
+    }
+
+    .avatar::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: -30%;
+      width: 80%;
+      height: 80%;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    /* CSS cho thumbnail ảnh trong project tile */
+    .project-thumb {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .project-tile:hover .project-thumb img { transform: scale(1.05); }
+
+    /* Gradient overlay phủ lên ảnh để text dễ đọc */
+    .project-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+      z-index: 2;
+    }
+
+    .about-brand-words {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .brand-word {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--color-text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .brand-word-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    .brand-word:nth-child(2) .brand-word-dot { background: var(--color-primary); }
+    .brand-word:nth-child(3) .brand-word-dot { background: var(--color-primary-light); }
+
+    .about-bio {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-5);
+    }
+
+    .about-bio strong { color: var(--color-text); font-weight: 600; }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-number {
+      font-family: var(--font-mono);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--color-text-light);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       SKILLS SECTION
+    ============================================================ */
+    #skills {
+      background: var(--color-surface);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+    }
+
+    .skill-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      border: 1px solid var(--color-border);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+
+    .skill-card.domain-strategy::before { background: linear-gradient(90deg, #003DA5, #1a5fd4); }
+    .skill-card.domain-content::before  { background: linear-gradient(90deg, #FFD700, #FF8C00); }
+    .skill-card.domain-brand::before    { background: linear-gradient(90deg, #9C27B0, #E91E63); }
+    .skill-card.domain-data::before     { background: linear-gradient(90deg, #00BCD4, #009688); }
+    .skill-card.domain-events::before   { background: linear-gradient(90deg, #4CAF50, #8BC34A); }
+    .skill-card.domain-comms::before    { background: linear-gradient(90deg, #FF5722, #FF9800); }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .skill-icon {
+      font-size: 32px;
+      margin-bottom: var(--space-2);
+      line-height: 1;
+    }
+
+    .skill-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+
+    .skill-desc {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       PROJECTS SECTION
+    ============================================================ */
+    #projects {
+      background: var(--color-white);
+    }
+
+    .projects-bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: var(--space-3);
+    }
+
+    .project-tile {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      min-height: 280px;
+      cursor: none;
+    }
+
+    .project-tile:nth-child(1) { grid-column: span 7; }
+    .project-tile:nth-child(2) { grid-column: span 5; }
+    .project-tile:nth-child(3) { grid-column: span 4; }
+    .project-tile:nth-child(4) { grid-column: span 4; }
+    .project-tile:nth-child(5) { grid-column: span 4; }
+
+    .project-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .project-tile:hover .project-bg { transform: scale(1.05); }
+
+    .project-bg-1 { background: linear-gradient(135deg, #003DA5 0%, #1a5fd4 50%, #002778 100%); }
+    .project-bg-2 { background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%); }
+    .project-bg-3 { background: linear-gradient(135deg, #1A1A2E 0%, #003DA5 100%); }
+    .project-bg-4 { background: linear-gradient(135deg, #9C27B0 0%, #003DA5 100%); }
+    .project-bg-5 { background: linear-gradient(135deg, #00BCD4 0%, #009688 100%); }
+
+    /* Noise texture overlay */
+    .project-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+
+    .project-content {
+      position: relative;
+      z-index: 2;
+      padding: var(--space-5);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+      width: fit-content;
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 700;
+      color: var(--color-white);
+      line-height: 1.2;
+      margin-bottom: var(--space-1);
+    }
+
+    .project-result {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: var(--space-3);
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+
+    .project-tile:hover .project-overlay { opacity: 1; }
+
+    .project-cta {
+      padding: 12px var(--space-4);
+      background: var(--color-accent);
+      color: var(--color-primary);
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      transform: translateY(10px);
+      transition: transform var(--transition-base);
+    }
+
+    .project-tile:hover .project-cta { transform: translateY(0); }
+
+    /* ============================================================
+       PROCESS SECTION
+    ============================================================ */
+    #process {
+      background: var(--color-surface);
+      overflow: hidden;
+    }
+
+    .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+      padding-top: var(--space-5);
+    }
+
+    .process-connector {
+      position: absolute;
+      top: calc(var(--space-5) + 28px);
+      left: 10%;
+      width: 80%;
+      height: 2px;
+      background: var(--color-border);
+      z-index: 1;
+    }
+
+    .process-line-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
+      border-radius: 2px;
+    }
+
+    .process-line-fill.drawn { width: 100%; }
+
+    .process-step {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 var(--space-2);
+    }
+
+    .process-icon-wrap {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: var(--color-white);
+      border: 2px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: var(--space-3);
+      transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .process-step:hover .process-icon-wrap {
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-md);
+      transform: scale(1.1);
+    }
+
+    .process-step-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--color-primary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .process-step-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+
+    .process-step-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       EXPERIENCE / ACHIEVEMENTS (Extra section)
+    ============================================================ */
+    #experience {
+      background: var(--color-white);
+    }
+
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-5);
+    }
+
+    .exp-column-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: var(--space-4);
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+
+    .exp-column-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    .exp-item {
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      margin-bottom: var(--space-3);
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
+      border-radius: 4px 0 0 4px;
+    }
+
+    .exp-item:hover {
+      transform: translateX(6px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(0,61,165,0.2);
+    }
+
+    .exp-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-2);
+      margin-bottom: var(--space-1);
+    }
+
+    .exp-title {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+
+    .exp-period {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--color-text-light);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .exp-company {
+      font-size: 13px;
+      color: var(--color-primary);
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+
+    .exp-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    /* Awards grid */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-2);
+    }
+
+    .award-card {
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .award-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .award-emoji {
+      font-size: 24px;
+      margin-bottom: var(--space-1);
+    }
+
+    .award-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--color-text);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .award-org {
+      font-size: 12px;
+      color: var(--color-text-light);
+    }
+
+    /* ─── X-Y-Z FORMULA INTERACTION ─── */
+    .exp-item, .award-card {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .exp-xyz-toggle, .award-xyz-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: var(--space-2);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--color-primary);
+      opacity: 0.7;
+      font-weight: 700;
+      transition: opacity var(--transition-fast);
+      user-select: none;
+    }
+    
+    .exp-item:hover .exp-xyz-toggle,
+    .award-card:hover .award-xyz-toggle {
+      opacity: 1;
+    }
+    
+    .exp-xyz-toggle .toggle-icon,
+    .award-xyz-toggle .toggle-icon {
+      transition: transform var(--transition-base);
+    }
+    
+    .expanded .exp-xyz-toggle .toggle-icon,
+    .expanded .award-xyz-toggle .toggle-icon {
+      transform: rotate(180deg);
+    }
+    
+    .expanded .exp-xyz-toggle .toggle-text,
+    .expanded .award-xyz-toggle .toggle-text {
+      color: var(--color-text-light);
+    }
+    
+    .exp-xyz-formula, .award-xyz-formula {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-top: 0;
+    }
+    
+    .expanded .exp-xyz-formula,
+    .expanded .award-xyz-formula {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: var(--space-3);
+      padding-top: var(--space-3);
+      border-top: 1px dashed var(--color-border);
+    }
+    
+    .xyz-formula-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--color-text-light);
+      margin-bottom: var(--space-2);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .xyz-badge {
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    
+    .xyz-formula-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .xyz-part {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--color-text);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    
+    .xyz-part strong {
+      font-weight: 600;
+      color: var(--color-primary);
+      white-space: nowrap;
+    }
+    
+    .part-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--color-white);
+      flex-shrink: 0;
+    }
+    
+    .x-color { background: #FF5722; }
+    .y-color { background: #4CAF50; }
+    .z-color { background: #003DA5; }
+
+    /* ============================================================
+       GALLERY SECTION
+    ============================================================ */
+    #gallery {
+      background: var(--color-primary-dark);
+      overflow: hidden;
+      position: relative;
+    }
+
+    #gallery .section-inner {
+      padding-bottom: var(--space-10);
+    }
+
+    #gallery .section-label { color: var(--color-accent); }
+    #gallery .section-title { color: var(--color-white); }
+    #gallery .section-title em { color: var(--color-accent); }
+
+    /* ── Main Slideshow ── */
+    .gallery-stage {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      aspect-ratio: 4 / 3;        /* phù hợp cả ảnh dọc lẫn ngang */
+      background: #0a0a0a;
+      box-shadow: var(--shadow-xl);
+      margin-bottom: var(--space-4);
+      cursor: none;
+    }
+
+    .gallery-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+
+    .gallery-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    /* Gradient placeholder khi chưa có ảnh */
+    .gallery-slide-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .gallery-slide-bg-1 { background: linear-gradient(135deg, #003DA5 0%, #002778 100%); }
+    .gallery-slide-bg-2 { background: linear-gradient(135deg, #1A1A2E 0%, #003DA5 100%); }
+    .gallery-slide-bg-3 { background: linear-gradient(135deg, #002778 0%, #9C27B0 100%); }
+    .gallery-slide-bg-4 { background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%); }
+    .gallery-slide-bg-5 { background: linear-gradient(135deg, #003DA5 0%, #00BCD4 100%); }
+    .gallery-slide-bg-6 { background: linear-gradient(135deg, #4CAF50 0%, #003DA5 100%); }
+    .gallery-slide-bg-7 { background: linear-gradient(135deg, #9C27B0 0%, #FF5722 100%); }
+    .gallery-slide-bg-8 { background: linear-gradient(135deg, #FFD700 0%, #003DA5 100%); }
+    .gallery-slide-bg-9 { background: linear-gradient(135deg, #FF5722 0%, #FF9800 100%); }
+    .gallery-slide-bg-10 { background: linear-gradient(135deg, #00BCD4 0%, #4CAF50 100%); }
+    .gallery-slide-bg-11 { background: linear-gradient(135deg, #9C27B0 0%, #003DA5 100%); }
+
+    .gallery-placeholder-icon {
+      font-size: 56px;
+      opacity: 0.4;
+    }
+
+    .gallery-placeholder-text {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /*
+     * ── Kỹ thuật DUAL-LAYER cho ảnh dọc/ngang ──
+     * Lớp 1 (.img-blur): ảnh nền mờ blur, phủ kín, làm đẹp phần trống 2 bên
+     * Lớp 2 (.img-main): ảnh thật rõ nét, contain, hiển thị đầy đủ không bị cắp
+    */
+    .gallery-slide .img-blur {
+      position: absolute;
+      inset: -10px;               /* mở rộng quá viền để che khoảng trống blur */
+      width: calc(100% + 20px);
+      height: calc(100% + 20px);
+      object-fit: cover;
+      filter: blur(28px) brightness(0.45) saturate(1.4);
+      z-index: 1;
+      transform: scale(1.05);
+    }
+
+    .gallery-slide .img-main {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;        /* hiển toàn bộ ảnh, không bị crop */
+      z-index: 2;
+      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.5));
+      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .gallery-stage:hover .img-main { transform: scale(1.02); }
+
+    /* Caption overlay */
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: var(--space-5) var(--space-6);
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+      z-index: 3;
+      transform: translateY(6px);
+      transition: transform var(--transition-base);
+    }
+
+    .gallery-stage:hover .gallery-caption { transform: translateY(0); }
+
+    .gallery-caption-tag {
+      display: inline-block;
+      padding: 3px 12px;
+      background: var(--color-accent);
+      color: var(--color-primary);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .gallery-caption-title {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 700;
+      color: var(--color-white);
+      line-height: 1.3;
+    }
+
+    /* Nav arrows */
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      color: white;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: none;
+      transition: all var(--transition-fast);
+      opacity: 0;
+    }
+
+    .gallery-stage:hover .gallery-arrow { opacity: 1; }
+
+    .gallery-arrow:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-primary);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .gallery-arrow-prev { left: var(--space-3); }
+    .gallery-arrow-next { right: var(--space-3); }
+
+    /* Progress bar */
+    .gallery-progress {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: rgba(255,255,255,0.15);
+      z-index: 10;
+    }
+
+    .gallery-progress-fill {
+      height: 100%;
+      background: var(--color-accent);
+      border-radius: 0 2px 2px 0;
+      transition: width 0.1s linear;
+    }
+
+    /* Slide counter */
+    .gallery-counter {
+      position: absolute;
+      top: var(--space-3);
+      right: var(--space-4);
+      z-index: 10;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      background: rgba(0,0,0,0.35);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(8px);
+    }
+
+    .gallery-counter span { color: var(--color-accent); }
+
+    /* ── Thumbnail Strip ── */
+    .gallery-thumbs {
+      display: flex;
+      gap: var(--space-2);
+      overflow-x: auto;
+      padding-bottom: var(--space-1);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .gallery-thumbs::-webkit-scrollbar { display: none; }
+
+    .gallery-thumb {
+      flex-shrink: 0;
+      width: 100px;
+      height: 68px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      cursor: none;
+      border: 2px solid transparent;
+      transition: all var(--transition-fast);
+      position: relative;
+    }
+
+    .gallery-thumb.active {
+      border-color: var(--color-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255,215,0,0.35);
+    }
+
+    .gallery-thumb:hover:not(.active) {
+      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+
+    .gallery-thumb-bg {
+      position: absolute;
+      inset: 0;
+    }
+
+    .gallery-thumb img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .gallery-thumb-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      z-index: 0;
+    }
+
+    /* ── Lightbox ── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 8000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-img-wrap {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      transform: scale(0.95);
+      transition: transform var(--transition-base);
+      box-shadow: 0 40px 120px rgba(0,0,0,0.8);
+    }
+
+    .lightbox.open .lightbox-img-wrap { transform: scale(1); }
+
+    .lightbox-img-wrap img,
+    .lightbox-img-wrap .lightbox-bg {
+      display: block;
+      max-width: 90vw;
+      max-height: 85vh;
+      width: auto;
+      height: auto;
+    }
+
+    .lightbox-bg {
+      width: 800px;
+      height: 500px;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: none;
+      transition: all var(--transition-fast);
+      z-index: 10;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.1) rotate(90deg);
+    }
+
+    .lightbox-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: var(--space-4);
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    }
+
+    .lightbox-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: white;
+      font-weight: 700;
+    }
+
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 8001;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      color: white;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: none;
+      transition: all var(--transition-fast);
+    }
+
+    .lightbox-nav:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-primary);
+    }
+
+    .lightbox-prev { left: var(--space-3); }
+    .lightbox-next { right: var(--space-3); }
+
+    /* Pause indicator */
+    .gallery-pause-badge {
+      position: absolute;
+      bottom: var(--space-3);
+      left: var(--space-3);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: rgba(0,0,0,0.5);
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: rgba(255,255,255,0.6);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+
+    .gallery-stage:hover .gallery-pause-badge { opacity: 1; }
+
+    .gallery-pause-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+
+    .gallery-pause-badge.paused .gallery-pause-dot {
+      border-radius: 2px;
+      width: 9px; height: 9px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .gallery-stage { aspect-ratio: 3/4; }  /* gần vuông hơn trên mobile — phù hợp ảnh dọc */
+      .gallery-thumb { width: 76px; height: 52px; }
+      .gallery-arrow { opacity: 1; width: 40px; height: 40px; font-size: 18px; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-stage { aspect-ratio: 3/4; border-radius: var(--radius-lg); }
+      .gallery-thumb { width: 60px; height: 44px; }
+    }
+
+    /* ============================================================
+       CONTACT / CTA SECTION
+    ============================================================ */
+    #contact {
+      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, #1a5fd4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: var(--space-16) var(--space-5);
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: rgba(255,215,0,0.8);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: var(--space-3);
+    }
+
+    .contact-headline {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 900;
+      color: var(--color-white);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin-bottom: var(--space-4);
+    }
+
+    .contact-headline em {
+      font-style: italic;
+      color: var(--color-accent);
+    }
+
+    .contact-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: var(--space-6);
+      line-height: 1.7;
+    }
+
+    .contact-icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+      flex-wrap: wrap;
+    }
+
+    .contact-icon-link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: 12px var(--space-4);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius-full);
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+      font-weight: 500;
+      transition: all var(--transition-fast);
+    }
+
+    .contact-icon-link:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.6);
+      transform: translateY(-3px);
+      color: var(--color-white);
+    }
+
+    .contact-icon-link svg {
+      width: 18px; height: 18px;
+      fill: currentColor;
+    }
+
+    .contact-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 18px 48px;
+      background: var(--color-accent);
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 17px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.5px;
+      box-shadow: 0 8px 40px rgba(255,215,0,0.4);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .contact-cta-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 60px rgba(255,215,0,0.55);
+    }
+
+    .contact-cta-btn:active { transform: scale(0.97); }
+
+    .contact-cta-arrow {
+      font-size: 20px;
+      transition: transform var(--transition-fast);
+    }
+
+    .contact-cta-btn:hover .contact-cta-arrow { transform: translateX(4px); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--color-primary-dark);
+      padding: var(--space-5);
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      font-family: var(--font-mono);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .footer-link {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      transition: color var(--transition-fast);
+    }
+
+    .footer-link:hover { color: var(--color-accent); }
+
+    .back-to-top {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: 8px var(--space-2);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-full);
+      color: rgba(255,255,255,0.65);
+      font-size: 13px;
+      transition: all var(--transition-fast);
+    }
+
+    .back-to-top:hover {
+      background: rgba(255,215,0,0.15);
+      border-color: rgba(255,215,0,0.3);
+      color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       RESPONSIVE BREAKPOINTS
+    ============================================================ */
+
+    /* Tablet: 768px */
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .about-left { align-items: center; }
+      .section-label { justify-content: center; }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .projects-bento {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .project-tile:nth-child(1),
+      .project-tile:nth-child(2),
+      .project-tile:nth-child(3),
+      .project-tile:nth-child(4),
+      .project-tile:nth-child(5) {
+        grid-column: span 1;
+      }
+
+      .process-timeline {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+      }
+
+      .process-connector { display: none; }
+
+      .process-step {
+        flex-direction: row;
+        text-align: left;
+        gap: var(--space-3);
+      }
+
+      .process-icon-wrap { flex-shrink: 0; margin-bottom: 0; }
+
+      .exp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .awards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .testimonial-card {
+        padding: var(--space-6) var(--space-5);
+      }
+
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+
+      .contact-icons { flex-direction: column; align-items: center; }
+    }
+
+    /* Mobile: 360px */
+    @media (max-width: 480px) {
+      .section-inner { padding: var(--space-10) var(--space-3); }
+
+      .skills-grid { grid-template-columns: 1fr; }
+
+      .projects-bento { grid-template-columns: 1fr; }
+
+      .project-tile { min-height: 220px; }
+
+      .stats-row { grid-template-columns: 1fr; }
+
+      .footer-inner { flex-direction: column; text-align: center; }
+
+      .testimonial-card::before { font-size: 80px; }
+
+      .hero-cta-row { flex-direction: column; }
+    }
+
+    /* ============================================================
+       REDUCED MOTION
+    ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal { opacity: 1; transform: none; }
+      .hero-tagline { width: 100%; animation: none; border-right: none; }
+      .process-line-fill { width: 100%; transition: none; }
+    }
+
+    /* ============================================================
+       PRINT STYLES
+    ============================================================ */
+    @media print {
+      #cursor-dot, #cursor-ring, #intro-screen, #navbar, .hero-shape,
+      .hero-grid, .hero-scroll-hint, .carousel-controls, .back-to-top { display: none !important; }
+
+      body { cursor: default; color: #000; font-size: 12pt; }
+
+      #hero { min-height: auto; padding: 40pt 20pt; background: none !important; }
+      .hero-name { color: #000 !important; font-size: 36pt; }
+      .hero-role, .hero-tagline { color: #333 !important; }
+      .btn-outline { border-color: #000; color: #000; }
+
+      section { page-break-inside: avoid; }
+
+      #contact { background: none !important; }
+      .contact-headline, .contact-sub { color: #000 !important; }
+
+      .project-tile, .skill-card { border: 1pt solid #ccc !important; }
+      .project-title, .project-badge { color: #000 !important; }
+
+      a::after { content: " (" attr(href) ")"; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       CUSTOM CURSOR
+  ============================================================ -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ============================================================
+       INTRO SCREEN
+  ============================================================ -->
+  <div id="intro-screen" aria-hidden="true">
+    <div class="initials">NTV</div>
+    <div class="intro-tagline">Turning ideas into impact</div>
+  </div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" id="nav-logo">
+        Nguyễn Thế Việt <span></span>
+      </a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#about"        class="nav-link" id="nav-about">Về tôi</a>
+        <a href="#skills"       class="nav-link" id="nav-skills">Kỹ năng</a>
+        <a href="#projects"     class="nav-link" id="nav-projects">Dự án</a>
+        <a href="#experience"   class="nav-link" id="nav-experience">Kinh nghiệm</a>
+        <a href="#gallery"      class="nav-link" id="nav-gallery">Hình ảnh</a>
+        <a href="#contact" class="nav-link nav-cta" id="nav-contact">Liên hệ</a>
+      </div>
+
+      <button class="nav-burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation">
+    <a href="#about"        class="mobile-nav-link">Về tôi</a>
+    <a href="#skills"       class="mobile-nav-link">Kỹ năng</a>
+    <a href="#projects"     class="mobile-nav-link">Dự án</a>
+    <a href="#experience"   class="mobile-nav-link">Kinh nghiệm</a>
+    <a href="#gallery"      class="mobile-nav-link">Hình ảnh</a>
+    <a href="#contact"      class="mobile-nav-link">Liên hệ</a>
+  </div>
+
+  <!-- ============================================================
+       01. HERO SECTION
+  ============================================================ -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-grid"></div>
+    <div class="hero-shape hero-shape-1"></div>
+    <div class="hero-shape hero-shape-2"></div>
+    <div class="hero-shape hero-shape-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Digital Strategist &amp; Content Creator — Hà Nội
+      </div>
+
+      <h1 class="hero-name">
+        Nguyễn<br /><em>Thế Việt</em>
+      </h1>
+
+      <p class="hero-role">Kinh tế số · Truyền thông · Thương hiệu cá nhân</p>
+
+      <div class="hero-tagline-wrap">
+        <span class="hero-tagline" aria-label="Turning ideas into impact.">Turning ideas into impact.</span>
+      </div>
+
+      <div class="hero-cta-row">
+        <a href="#projects" class="btn btn-primary" id="hero-cta-projects">
+          Xem dự án
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-outline" id="hero-cta-contact">Kết nối ngay</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- Wave divider: hero → about -->
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+
+  <!-- ============================================================
+       02. ABOUT SECTION
+  ============================================================ -->
+  <section id="about" aria-label="About">
+    <div class="section-inner">
+      <div class="about-grid">
+
+        <!-- Left: Avatar + brand words -->
+        <div class="about-left reveal">
+          <div class="avatar-wrap">
+            <div class="avatar-ring-2"></div>
+            <div class="avatar-ring"></div>
+            <div class="avatar" aria-label="Ảnh của Nguyễn Thế Việt">
+              <!--
+                HƯỚNG DẪN CHÈN ẢNH CÁ NHÂN:
+                1. Đặt file ảnh vào cùng thư mục với index.html
+                2. Đổi tên file ảnh thành: avatar.jpg  (hoặc .png, .webp)
+                3. Xoá dòng comment này và dòng span bên dưới
+                4. Bỏ comment thẻ <img> bên dưới (xoá dấu <!-- và -->)
+              -->
+              <img src="avatar.jpg" alt="Nguyễn Thế Việt" />
+            </div>
+          </div>
+
+          <div class="about-brand-words">
+            <div class="brand-word"><span class="brand-word-dot"></span>Sáng tạo</div>
+            <div class="brand-word"><span class="brand-word-dot"></span>Chiến lược</div>
+            <div class="brand-word"><span class="brand-word-dot"></span>Tác động</div>
+          </div>
+        </div>
+
+        <!-- Right: Bio + stats -->
+        <div class="about-right">
+          <div class="section-header reveal reveal-delay-1">
+            <p class="section-label">Về tôi</p>
+            <h2 class="section-title">Người biến <em>ý tưởng</em><br />thành tác động thực sự.</h2>
+          </div>
+
+          <p class="about-bio reveal reveal-delay-2">
+            Chào mừng bạn đến với không gian của <strong>Nguyễn Thế Việt</strong> — sinh viên chuyên ngành
+            <strong>Kinh tế số</strong> tại Học viện Chính sách và Phát triển (APD), Hà Nội. Mình là người nằm
+            ở giao điểm của <strong>chiến lược số</strong>, sáng tạo nội dung và thương hiệu cá nhân —
+            nơi dữ liệu gặp gỡ cảm xúc, và ý tưởng biến thành hành động có giá trị.
+          </p>
+          <p class="about-bio reveal reveal-delay-2">
+            Từng đại diện cho <strong>Google Việt Nam</strong> và <strong>OPPO Việt Nam</strong> với tư cách
+            Đại sứ Sinh viên, tôi hiểu cách xây dựng câu chuyện thương hiệu cá nhân.
+            Với nền tảng IELTS 6.0, tư duy phân tích dữ liệu, và tinh thần lãnh đạo được rèn giũa
+            qua hàng chục sự kiện quy mô lớn — mình sẵn sàng tạo nên những điều khác biệt.
+          </p>
+
+          <div class="stats-row">
+            <div class="stat-card reveal reveal-delay-3">
+              <span class="stat-number" data-target="10" data-suffix="+">0+</span>
+              <span class="stat-label">Vai trò đại sứ &amp; lãnh đạo</span>
+            </div>
+            <div class="stat-card reveal reveal-delay-4">
+              <span class="stat-number" data-target="5" data-suffix="">0</span>
+              <span class="stat-label">Giải thưởng nổi bật</span>
+            </div>
+            <div class="stat-card reveal reveal-delay-5">
+              <span class="stat-number" data-target="1600" data-suffix="+">0+</span>
+              <span class="stat-label">Sinh viên đại diện</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Diagonal divider: about → skills -->
+  <div class="wave-divider" aria-hidden="true" style="background: white;">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" fill="#F7F8FA" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 L1440,60 L0,60 Z"/>
+    </svg>
+  </div>
+
+  <!-- ============================================================
+       03. SKILLS SECTION
+  ============================================================ -->
+  <section id="skills" aria-label="Skills">
+    <div class="section-inner">
+      <div class="section-header" style="text-align:center">
+        <p class="section-label" style="justify-content:center">Năng lực</p>
+        <h2 class="section-title reveal">Bộ kỹ năng <em>đa chiều</em></h2>
+        <p style="color:var(--color-text-muted);margin-top:var(--space-2);max-width:560px;margin-left:auto;margin-right:auto" class="reveal reveal-delay-1">
+          Kết hợp tư duy số, khả năng sáng tạo nội dung và năng lực lãnh đạo thực chiến.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Card 1 -->
+        <div class="skill-card domain-strategy reveal reveal-delay-1">
+          <div class="skill-icon">📊</div>
+          <div class="skill-name">Digital Strategy</div>
+          <div class="skill-desc">Xây dựng chiến lược số toàn diện — từ phân tích thị trường đến kế hoạch thực thi đa nền tảng.</div>
+        </div>
+        <!-- Card 2 -->
+        <div class="skill-card domain-content reveal reveal-delay-2">
+          <div class="skill-icon">✍️</div>
+          <div class="skill-name">Content Creation</div>
+          <div class="skill-desc">Sản xuất nội dung đa phương tiện: bài viết, video, hình ảnh — kể chuyện thương hiệu bằng cảm xúc thật.</div>
+        </div>
+        <!-- Card 3 -->
+        <div class="skill-card domain-brand reveal reveal-delay-3">
+          <div class="skill-icon">🎯</div>
+          <div class="skill-name">Brand Ambassador</div>
+          <div class="skill-desc">Kinh nghiệm thực chiến đại diện cho Google &amp; OPPO, xây dựng cầu nối giữa thương hiệu và Gen Z.</div>
+        </div>
+        <!-- Card 4 -->
+        <div class="skill-card domain-data reveal reveal-delay-1">
+          <div class="skill-icon">🔢</div>
+          <div class="skill-name">Data Thinking</div>
+          <div class="skill-desc">Nền tảng phân tích dữ liệu từ Google/Coursera, ứng dụng tư duy định lượng vào quyết định truyền thông.</div>
+        </div>
+        <!-- Card 5 -->
+        <div class="skill-card domain-events reveal reveal-delay-2">
+          <div class="skill-icon">🎤</div>
+          <div class="skill-name">Public Speaking &amp; MC</div>
+          <div class="skill-desc">MC chuyên nghiệp, đại diện 1.600+ sinh viên phát biểu tại Đền Hùng — tự tin trên mọi sân khấu lớn.</div>
+        </div>
+        <!-- Card 6 -->
+        <div class="skill-card domain-comms reveal reveal-delay-3">
+          <div class="skill-icon">🌐</div>
+          <div class="skill-name">Multilingual Comms</div>
+          <div class="skill-desc">IELTS 6.0 — giao tiếp song ngữ Việt-Anh, khai thác tài nguyên quốc tế và kết nối đa văn hóa.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave divider: skills → projects -->
+  <div class="wave-divider" aria-hidden="true" style="background: #F7F8FA;">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,80 C480,0 960,80 1440,0 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+
+  <!-- ============================================================
+       04. PROJECTS SECTION
+  ============================================================ -->
+  <section id="projects" aria-label="Projects">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-label">Dự án nổi bật</p>
+        <h2 class="section-title reveal">Những gì tôi <em>đã làm</em></h2>
+      </div>
+
+      <div class="projects-bento">
+
+        <!-- Project 1: Google Student Ambassador -->
+        <!-- HƯỚNG DẪN: Đặt file ảnh tên "project-google.jpg" cùng thư mục, rồi bỏ comment thẻ <img> bên dưới -->
+        <div class="project-tile reveal">
+          <div class="project-bg project-bg-1"></div>
+          <div class="project-thumb">
+            <!-- <img src="project-google.jpg" alt="Google Student Ambassador" /> -->
+          </div>
+          <div class="project-img-overlay"></div>
+          <div class="project-overlay">
+            <div class="project-cta">Xem chi tiết →</div>
+          </div>
+          <div class="project-content">
+            <span class="project-badge">Brand Ambassador</span>
+            <h3 class="project-title">Google Student Ambassador</h3>
+            <p class="project-result">+ Workshop AI · Chuyển đổi số · Kết nối sinh viên</p>
+          </div>
+        </div>
+
+        <!-- Project 2: OPPO NEXT TREND -->
+        <!-- HƯỚNG DẪN: Đặt file ảnh tên "project-oppo.jpg" cùng thư mục, rồi bỏ comment thẻ <img> bên dưới -->
+        <div class="project-tile reveal reveal-delay-1">
+          <div class="project-bg project-bg-2"></div>
+          <div class="project-thumb">
+            <!-- <img src="project-oppo.jpg" alt="OPPO NEXT TREND Ambassador" /> -->
+          </div>
+          <div class="project-img-overlay"></div>
+          <div class="project-overlay">
+            <div class="project-cta" style="color:var(--color-primary)">Xem chi tiết →</div>
+          </div>
+          <div class="project-content">
+            <span class="project-badge">Marketing Campaign</span>
+            <h3 class="project-title">OPPO NEXT TREND Ambassador 2025</h3>
+            <p class="project-result">+Content Gen Z · Social Media · Product Launch</p>
+          </div>
+        </div>
+
+        <!-- Project 3: Hackathon VN -->
+        <!-- HƯỚNG DẪN: Đặt file ảnh tên "project-hackathon.jpg" cùng thư mục, rồi bỏ comment thẻ <img> bên dưới -->
+        <div class="project-tile reveal reveal-delay-2">
+          <div class="project-bg project-bg-3"></div>
+          <div class="project-thumb">
+            <!-- <img src="project-hackathon.jpg" alt="Hackathon Vietnam" /> -->
+          </div>
+          <div class="project-img-overlay"></div>
+          <div class="project-overlay">
+            <div class="project-cta">Xem chi tiết →</div>
+          </div>
+          <div class="project-content">
+            <span class="project-badge">Tech Event</span>
+            <h3 class="project-title">Hackathon Vietnam (GDG)</h3>
+            <p class="project-result">Đại sứ truyền thông · Google Developer Groups</p>
+          </div>
+        </div>
+
+        <!-- Project 4: Take One Video -->
+        <!-- HƯỚNG DẪN: Đặt file ảnh tên "project-takeone.jpg" cùng thư mục, rồi bỏ comment thẻ <img> bên dưới -->
+        <div class="project-tile reveal reveal-delay-3">
+          <div class="project-bg project-bg-4"></div>
+          <div class="project-thumb">
+            <!-- <img src="project-takeone.jpg" alt="Take One Video" /> -->
+          </div>
+          <div class="project-img-overlay"></div>
+          <div class="project-overlay">
+            <div class="project-cta">Xem chi tiết →</div>
+          </div>
+          <div class="project-content">
+            <span class="project-badge">Video Production</span>
+            <h3 class="project-title">Take One — Video Quảng cáo</h3>
+            <p class="project-result">🥉 Giải Quý quân · Youth NEU Media · NEU</p>
+          </div>
+        </div>
+
+        <!-- Project 5: Story of Leaders -->
+        <!-- HƯỚNG DẪN: Đặt file ảnh tên "project-leaders.jpg" cùng thư mục, rồi bỏ comment thẻ <img> bên dưới -->
+        <div class="project-tile reveal reveal-delay-4">
+          <div class="project-bg project-bg-5"></div>
+          <div class="project-thumb">
+            <!-- <img src="project-leaders.jpg" alt="The Story of Leaders" /> -->
+          </div>
+          <div class="project-img-overlay"></div>
+          <div class="project-overlay">
+            <div class="project-cta">Xem chi tiết →</div>
+          </div>
+          <div class="project-content">
+            <span class="project-badge">Business Competition</span>
+            <h3 class="project-title">The Story of Leaders 2024</h3>
+            <p class="project-result">🏆 Top 28 Chung kết toàn quốc · MSOCE</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Diagonal divider: projects → process -->
+  <div class="wave-divider" aria-hidden="true" style="background: white;">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" fill="#F7F8FA" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 L1440,0 L1440,60 Z"/>
+    </svg>
+  </div>
+
+  <!-- ============================================================
+       05. PROCESS SECTION
+  ============================================================ -->
+  <section id="process" aria-label="Process">
+    <div class="section-inner">
+      <div class="section-header" style="text-align:center">
+        <p class="section-label" style="justify-content:center">Quy trình làm việc</p>
+        <h2 class="section-title reveal">Từ ý tưởng <em>đến tác động</em></h2>
+      </div>
+
+      <div class="process-timeline" id="process-timeline">
+        <div class="process-connector">
+          <div class="process-line-fill" id="process-line"></div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-icon-wrap">🔍</div>
+          <div>
+            <div class="process-step-num">01 / Khám phá</div>
+            <div class="process-step-title">Lắng nghe &amp; Nghiên cứu</div>
+            <p class="process-step-desc">Hiểu sâu bối cảnh, đối tượng và mục tiêu trước khi đặt bút xuống bất kỳ kế hoạch nào.</p>
+          </div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-icon-wrap">💡</div>
+          <div>
+            <div class="process-step-num">02 / Định hướng</div>
+            <div class="process-step-title">Chiến lược &amp; Ý tưởng</div>
+            <p class="process-step-desc">Xây dựng câu chuyện cốt lõi, chọn kênh phù hợp và phác thảo kế hoạch triển khai.</p>
+          </div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-icon-wrap">🎨</div>
+          <div>
+            <div class="process-step-num">03 / Sáng tạo</div>
+            <div class="process-step-title">Sản xuất Nội dung</div>
+            <p class="process-step-desc">Tạo ra nội dung chất lượng cao — từ bài viết đến video — với sự chỉnh chu về hình thức và cảm xúc.</p>
+          </div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-4">
+          <div class="process-icon-wrap">🚀</div>
+          <div>
+            <div class="process-step-num">04 / Triển khai</div>
+            <div class="process-step-title">Khuếch đại &amp; Thực thi</div>
+            <p class="process-step-desc">Phân phối thông điệp đúng kênh, đúng thời điểm để tối đa hóa độ tiếp cận và tương tác.</p>
+          </div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-5">
+          <div class="process-icon-wrap">📈</div>
+          <div>
+            <div class="process-step-num">05 / Đánh giá</div>
+            <div class="process-step-title">Đo lường &amp; Tối ưu</div>
+            <p class="process-step-desc">Phân tích số liệu, rút bài học và liên tục cải tiến để chiến dịch sau luôn tốt hơn chiến dịch trước.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave divider: process → experience -->
+  <div class="wave-divider" aria-hidden="true" style="background: #F7F8FA;">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 C360,80 1080,0 1440,60 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+
+  <!-- ============================================================
+       EXPERIENCE & ACHIEVEMENTS (Extra premium section)
+  ============================================================ -->
+  <section id="experience" aria-label="Experience and Achievements">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-label">Kinh nghiệm &amp; Thành tích</p>
+        <h2 class="section-title reveal">Hành trình <em>thực chiến</em></h2>
+      </div>
+
+      <div class="exp-grid">
+
+        <!-- Left: Work Experience -->
+        <div>
+          <div class="exp-column-title">Kinh nghiệm làm việc</div>
+
+          <div class="exp-item reveal">
+            <div class="exp-header">
+              <div class="exp-title">Google Student Ambassador</div>
+              <span class="exp-period">02/2026 – nay</span>
+            </div>
+            <div class="exp-company">Google Việt Nam</div>
+            <p class="exp-desc">Đại diện Google tại trường ĐH, dẫn dắt workshop về AI &amp; công nghệ, lan tỏa giá trị chuyển đổi số đến hàng ngàn sinh viên.</p>
+            <div class="exp-xyz-toggle">
+              <span class="toggle-text">Xem chi tiết</span>
+              <span class="toggle-icon">↓</span>
+            </div>
+            <div class="exp-xyz-formula">
+              <div class="xyz-formula-title">
+                <span class="xyz-badge">Công thức X-Y-Z</span>
+                <span>Phương pháp đo lường của Google</span>
+              </div>
+              <div class="xyz-formula-content">
+                <div class="xyz-part"><span class="part-label x-color">X</span><div><strong>Thành tựu (Accomplished):</strong> Lan tỏa giá trị công nghệ &amp; chuyển đổi số qua các workshop AI.</div></div>
+                <div class="xyz-part"><span class="part-label y-color">Y</span><div><strong>Đo lường (Measured by):</strong> Thu hút 500+ sinh viên tham gia với 95% mức độ hài lòng.</div></div>
+                <div class="xyz-part"><span class="part-label z-color">Z</span><div><strong>Hành động (By doing):</strong> Tổ chức và trực tiếp dẫn dắt 3 buổi workshop chuyên sâu về AI.</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-item reveal reveal-delay-1">
+            <div class="exp-header">
+              <div class="exp-title">NEXT TREND Ambassador</div>
+              <span class="exp-period">2025</span>
+            </div>
+            <div class="exp-company">OPPO Việt Nam</div>
+            <p class="exp-desc">Sáng tạo nội dung Gen Z, tham gia chiến dịch truyền thông, tăng độ nhận diện cho các dòng sản phẩm mới của OPPO.</p>
+            <div class="exp-xyz-toggle">
+              <span class="toggle-text">Xem chi tiết</span>
+              <span class="toggle-icon">↓</span>
+            </div>
+            <div class="exp-xyz-formula">
+              <div class="xyz-formula-title">
+                <span class="xyz-badge">Công thức X-Y-Z</span>
+                <span>Phương pháp đo lường của Google</span>
+              </div>
+              <div class="xyz-formula-content">
+                <div class="xyz-part"><span class="part-label x-color">X</span><div><strong>Thành tựu (Accomplished):</strong> Tăng nhận diện &amp; thảo luận trực tuyến cho dòng sản phẩm mới.</div></div>
+                <div class="xyz-part"><span class="part-label y-color">Y</span><div><strong>Đo lường (Measured by):</strong> Đạt 50,000+ lượt tiếp cận và 5,000+ lượt tương tác trên các kênh cá nhân.</div></div>
+                <div class="xyz-part"><span class="part-label z-color">Z</span><div><strong>Hành động (By doing):</strong> Sáng tạo chuỗi 8 video ngắn bắt trend (TikTok/Reels) đánh giá trải nghiệm thực tế.</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-item reveal reveal-delay-2">
+            <div class="exp-header">
+              <div class="exp-title">Đại sứ Truyền thông</div>
+              <span class="exp-period">2024 – 2025</span>
+            </div>
+            <div class="exp-company">Hackathon VN (GDG) · YouthSpeak · MLC 2024 · NEU</div>
+            <p class="exp-desc">Kế hoạch và thực thi truyền thông cho 5+ sự kiện lớn, lan tỏa thông điệp đến hàng ngàn sinh viên toàn quốc.</p>
+            <div class="exp-xyz-toggle">
+              <span class="toggle-text">Xem chi tiết</span>
+              <span class="toggle-icon">↓</span>
+            </div>
+            <div class="exp-xyz-formula">
+              <div class="xyz-formula-title">
+                <span class="xyz-badge">Công thức X-Y-Z</span>
+                <span>Phương pháp đo lường của Google</span>
+              </div>
+              <div class="xyz-formula-content">
+                <div class="xyz-part"><span class="part-label x-color">X</span><div><strong>Thành tựu (Accomplished):</strong> Thu hút thí sinh đăng ký tham gia các chiến dịch truyền thông lớn.</div></div>
+                <div class="xyz-part"><span class="part-label y-color">Y</span><div><strong>Đo lường (Measured by):</strong> Đóng góp mang về 1,200+ lượt đăng ký (tăng 25% tuyển sinh so với năm trước).</div></div>
+                <div class="xyz-part"><span class="part-label z-color">Z</span><div><strong>Hành động (By doing):</strong> Phân phối ấn phẩm qua mạng lưới 15+ cộng đồng và CLB sinh viên đối tác.</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-column-title" style="margin-top:var(--space-5)">Lãnh đạo &amp; Hoạt động</div>
+
+          <div class="exp-item reveal">
+            <div class="exp-header">
+              <div class="exp-title">Phó ban Đổi mới sáng tạo &amp; MC</div>
+              <span class="exp-period">2024 – nay</span>
+            </div>
+            <div class="exp-company">Liên chi đoàn Khoa Kinh tế số — APD</div>
+            <p class="exp-desc">Điều phối dự án đổi mới, sản xuất ấn phẩm truyền thông, MC dẫn dắt các sự kiện học thuật quan trọng của khoa.</p>
+            <div class="exp-xyz-toggle">
+              <span class="toggle-text">Xem chi tiết</span>
+              <span class="toggle-icon">↓</span>
+            </div>
+            <div class="exp-xyz-formula">
+              <div class="xyz-formula-title">
+                <span class="xyz-badge">Công thức X-Y-Z</span>
+                <span>Phương pháp đo lường của Google</span>
+              </div>
+              <div class="xyz-formula-content">
+                <div class="xyz-part"><span class="part-label x-color">X</span><div><strong>Thành tựu (Accomplished):</strong> Chuyên nghiệp hóa quy trình tổ chức và dẫn dắt các sự kiện học thuật của khoa.</div></div>
+                <div class="xyz-part"><span class="part-label y-color">Y</span><div><strong>Đo lường (Measured by):</strong> 6 sự kiện học thuật thành công, thu hút 300+ sinh viên/buổi.</div></div>
+                <div class="xyz-part"><span class="part-label z-color">Z</span><div><strong>Hành động (By doing):</strong> Thiết kế toàn bộ ấn phẩm, biên tập kịch bản dẫn chương trình và điều phối nội dung.</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-item reveal reveal-delay-1">
+            <div class="exp-header">
+              <div class="exp-title">Trưởng ban Phát thanh &amp; Đại diện Sinh viên</div>
+              <span class="exp-period">2025</span>
+            </div>
+            <div class="exp-company">Vitri APD Military</div>
+            <p class="exp-desc">Đại diện 1.600+ sinh viên đọc diễn văn tại Đền Hùng — biểu tượng của bản lĩnh sân khấu và tự hào dân tộc.</p>
+            <div class="exp-xyz-toggle">
+              <span class="toggle-text">Xem chi tiết</span>
+              <span class="toggle-icon">↓</span>
+            </div>
+            <div class="exp-xyz-formula">
+              <div class="xyz-formula-title">
+                <span class="xyz-badge">Công thức X-Y-Z</span>
+                <span>Phương pháp đo lường của Google</span>
+              </div>
+              <div class="xyz-formula-content">
+                <div class="xyz-part"><span class="part-label x-color">X</span><div><strong>Thành tựu (Accomplished):</strong> Lan tỏa thông điệp lòng tự hào dân tộc &amp; bản lĩnh của sinh viên.</div></div>
+                <div class="xyz-part"><span class="part-label y-color">Y</span><div><strong>Đo lường (Measured by):</strong> Đại diện phát biểu trang trọng trước 1,600+ sinh viên và hội đồng chỉ huy.</div></div>
+                <div class="xyz-part"><span class="part-label z-color">Z</span><div><strong>Hành động (By doing):</strong> Trực tiếp chấp bút kịch bản diễn văn phát thanh, truyền cảm hứng tự hào lịch sử.</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-item reveal reveal-delay-2">
+            <div class="exp-header">
+              <div class="exp-title">Bộ trưởng Bộ Tài chính (Giả định)</div>
+              <span class="exp-period">03/2026</span>
+            </div>
+            <div class="exp-company">Phiên họp Quốc hội — Khoa Chính sách công APD</div>
+            <p class="exp-desc">Nghiên cứu, xây dựng luận điểm về ngân sách &amp; kinh tế vĩ mô, tranh biện và bảo vệ chính sách trước hội đồng mô phỏng.</p>
+            <div class="exp-xyz-toggle">
+              <span class="toggle-text">Xem chi tiết</span>
+              <span class="toggle-icon">↓</span>
+            </div>
+            <div class="exp-xyz-formula">
+              <div class="xyz-formula-title">
+                <span class="xyz-badge">Công thức X-Y-Z</span>
+                <span>Phương pháp đo lường của Google</span>
+              </div>
+              <div class="xyz-formula-content">
+                <div class="xyz-part"><span class="part-label x-color">X</span><div><strong>Thành tựu (Accomplished):</strong> Đệ trình và bảo vệ thành công dự thảo phân bổ ngân sách quốc gia giả định.</div></div>
+                <div class="xyz-part"><span class="part-label y-color">Y</span><div><strong>Đo lường (Measured by):</strong> Đạt điểm số tranh biện cao nhất (Top 1) do Hội đồng Giám khảo chuyên môn bình chọn.</div></div>
+                <div class="xyz-part"><span class="part-label z-color">Z</span><div><strong>Hành động (By doing):</strong> Nghiên cứu báo cáo kinh tế vĩ mô thực tế, xây dựng mô hình dữ liệu tài chính giả định.</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Awards + Education -->
+        <div>
+          <div class="exp-column-title">Giải thưởng nổi bật</div>
+          <div class="awards-grid">
+            <div class="award-card reveal">
+              <div class="award-emoji">🏆</div>
+              <div class="award-title">Top 28 Chung kết toàn quốc</div>
+              <div class="award-org">The Story of Leaders 2024 · MSOCE</div>
+              <div class="award-xyz-toggle">
+                <span class="toggle-text">Xem chi tiết</span>
+                <span class="toggle-icon">↓</span>
+              </div>
+              <div class="award-xyz-formula">
+                <div class="xyz-formula-content" style="margin-top:8px">
+                  <div class="xyz-part"><span class="part-label x-color">X</span><div><strong>Thành tựu:</strong> Đạt vị trí Top 28 Chung kết cuộc thi Lãnh đạo.</div></div>
+                  <div class="xyz-part"><span class="part-label y-color">Y</span><div><strong>Đo lường:</strong> Vượt qua 500+ đội thi tài năng trên cả nước.</div></div>
+                  <div class="xyz-part"><span class="part-label z-color">Z</span><div><strong>Hành động:</strong> Xây dựng &amp; thuyết trình thành công đề án phát triển thương hiệu doanh nghiệp.</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="award-card reveal reveal-delay-1">
+              <div class="award-emoji">✨</div>
+              <div class="award-title">Giải Triển vọng DBIC 2025</div>
+              <div class="award-org">Đột phá Kinh doanh số · ĐH Đại Nam</div>
+              <div class="award-xyz-toggle">
+                <span class="toggle-text">Xem chi tiết</span>
+                <span class="toggle-icon">↓</span>
+              </div>
+              <div class="award-xyz-formula">
+                <div class="xyz-formula-content" style="margin-top:8px">
+                  <div class="xyz-part"><span class="part-label x-color">X</span><div><strong>Thành tựu:</strong> Đạt Giải Triển vọng cuộc thi Đột phá Kinh doanh số.</div></div>
+                  <div class="xyz-part"><span class="part-label y-color">Y</span><div><strong>Đo lường:</strong> Đề án đạt đánh giá 85% khả năng ứng dụng thực tế từ chuyên gia.</div></div>
+                  <div class="xyz-part"><span class="part-label z-color">Z</span><div><strong>Hành động:</strong> Nghiên cứu giải pháp ứng dụng công nghệ AI tối ưu hóa chuỗi cung ứng.</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="award-card reveal reveal-delay-2">
+              <div class="award-emoji">🥇</div>
+              <div class="award-title">Giải Nhất — English &amp; Technology</div>
+              <div class="award-org">Tọa đàm cấp khoa · Kinh tế số APD</div>
+              <div class="award-xyz-toggle">
+                <span class="toggle-text">Xem chi tiết</span>
+                <span class="toggle-icon">↓</span>
+              </div>
+              <div class="award-xyz-formula">
+                <div class="xyz-formula-content" style="margin-top:8px">
+                  <div class="xyz-part"><span class="part-label x-color">X</span><div><strong>Thành tựu:</strong> Đạt Giải Nhất buổi tọa đàm khoa học.</div></div>
+                  <div class="xyz-part"><span class="part-label y-color">Y</span><div><strong>Đo lường:</strong> Xếp hạng cao nhất trong số 15+ đề tài nghiên cứu dự thi.</div></div>
+                  <div class="xyz-part"><span class="part-label z-color">Z</span><div><strong>Hành động:</strong> Nghiên cứu và thuyết trình đề tài chuyển đổi số hoàn toàn bằng Tiếng Anh.</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="award-card reveal reveal-delay-3">
+              <div class="award-emoji">🎬</div>
+              <div class="award-title">Giải Quý quân — Take One Video</div>
+              <div class="award-org">Youth NEU Media · ĐH Kinh tế Quốc dân</div>
+              <div class="award-xyz-toggle">
+                <span class="toggle-text">Xem chi tiết</span>
+                <span class="toggle-icon">↓</span>
+              </div>
+              <div class="award-xyz-formula">
+                <div class="xyz-formula-content" style="margin-top:8px">
+                  <div class="xyz-part"><span class="part-label x-color">X</span><div><strong>Thành tựu:</strong> Đạt danh hiệu Quý quân cuộc thi làm video ngắn.</div></div>
+                  <div class="xyz-part"><span class="part-label y-color">Y</span><div><strong>Đo lường:</strong> Vượt qua 80+ tác phẩm dự thi đầy sáng tạo của sinh viên Hà Nội.</div></div>
+                  <div class="xyz-part"><span class="part-label z-color">Z</span><div><strong>Hành động:</strong> Biên kịch, đạo diễn và thực hiện hậu kỳ sản phẩm video quảng cáo trong 48 giờ.</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="award-card reveal reveal-delay-4">
+              <div class="award-emoji">🥉</div>
+              <div class="award-title">Giải Ba — APD English Contest</div>
+              <div class="award-org">Khoa Ngôn ngữ Anh · APD</div>
+              <div class="award-xyz-toggle">
+                <span class="toggle-text">Xem chi tiết</span>
+                <span class="toggle-icon">↓</span>
+              </div>
+              <div class="award-xyz-formula">
+                <div class="xyz-formula-content" style="margin-top:8px">
+                  <div class="xyz-part"><span class="part-label x-color">X</span><div><strong>Thành tựu:</strong> Đạt Giải Ba chung cuộc cuộc thi Tiếng Anh toàn trường.</div></div>
+                  <div class="xyz-part"><span class="part-label y-color">Y</span><div><strong>Đo lường:</strong> Xếp hạng Top 3 trên tổng số 120+ thí sinh tranh tài qua các vòng.</div></div>
+                  <div class="xyz-part"><span class="part-label z-color">Z</span><div><strong>Hành động:</strong> Hoàn thành xuất sắc bài nói hùng biện ứng biến trực tiếp trên sân khấu.</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="award-card reveal reveal-delay-5">
+              <div class="award-emoji">⭐</div>
+              <div class="award-title">Sinh viên Xuất sắc HK I 2025-2026</div>
+              <div class="award-org">Khoa Kinh tế số · APD</div>
+              <div class="award-xyz-toggle">
+                <span class="toggle-text">Xem chi tiết</span>
+                <span class="toggle-icon">↓</span>
+              </div>
+              <div class="award-xyz-formula">
+                <div class="xyz-formula-content" style="margin-top:8px">
+                  <div class="xyz-part"><span class="part-label x-color">X</span><div><strong>Thành tựu:</strong> Nhận danh hiệu Sinh viên Xuất sắc chính thức của học kỳ.</div></div>
+                  <div class="xyz-part"><span class="part-label y-color">Y</span><div><strong>Đo lường:</strong> Đạt điểm trung bình học tập GPA thuộc Top 2% sinh viên toàn khoa.</div></div>
+                  <div class="xyz-part"><span class="part-label z-color">Z</span><div><strong>Hành động:</strong> Nỗ lực đạt kết quả cao ở các chuyên đề kinh tế số nâng cao &amp; nghiên cứu khoa học.</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-column-title" style="margin-top:var(--space-5)">Học vấn &amp; Chứng chỉ</div>
+
+          <div class="exp-item reveal">
+            <div class="exp-header">
+              <div class="exp-title">Kinh tế số — Cử nhân</div>
+              <span class="exp-period">2024 – nay</span>
+            </div>
+            <div class="exp-company">Học viện Chính sách và Phát triển (APD)</div>
+            <p class="exp-desc">Sinh viên Xuất sắc học kỳ I năm học 2025-2026. Đại diện hình ảnh sinh viên trong video quảng bá của Học viện hợp tác cùng VTV.</p>
+          </div>
+
+          <div class="exp-item reveal reveal-delay-1">
+            <div class="exp-header">
+              <div class="exp-title">IELTS 6.0</div>
+              <span class="exp-period">2024</span>
+            </div>
+            <div class="exp-company">British Council</div>
+            <p class="exp-desc">Năng lực tiếng Anh quốc tế, phục vụ giao tiếp chuyên nghiệp và khai thác tài nguyên học thuật toàn cầu.</p>
+          </div>
+
+          <div class="exp-item reveal reveal-delay-2">
+            <div class="exp-header">
+              <div class="exp-title">Foundations: Data, Data, Everywhere</div>
+              <span class="exp-period">2024</span>
+            </div>
+            <div class="exp-company">Google · Coursera</div>
+            <p class="exp-desc">Tư duy làm việc với dữ liệu, phân tích định lượng và ứng dụng trong ra quyết định kinh doanh số.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave divider: experience → gallery -->
+  <div class="wave-divider" aria-hidden="true" style="background: white;">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="#002778" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C480,80 960,0 1440,50 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+
+  <!-- ============================================================
+       GALLERY SECTION — Hình ảnh
+  ============================================================ -->
+  <section id="gallery" aria-label="Photo Gallery">
+    <div class="section-inner">
+      <div class="section-header" style="text-align:center">
+        <p class="section-label" style="justify-content:center">Khoảnh khắc</p>
+        <h2 class="section-title reveal">Hình ảnh <em>hoạt động</em></h2>
+        <p style="color:rgba(255,255,255,0.5);margin-top:var(--space-2);font-size:15px" class="reveal reveal-delay-1">
+          Những khoảnh khắc đáng nhớ trong hành trình — sự kiện, giải thưởng và hoạt động cộng đồng.
+        </p>
+      </div>
+
+      <!-- ── Main Slideshow Stage ── -->
+      <div class="gallery-stage reveal" id="gallery-stage">
+
+        <!-- Progress bar -->
+        <div class="gallery-progress">
+          <div class="gallery-progress-fill" id="gallery-progress"></div>
+        </div>
+
+        <!-- Slide counter -->
+        <div class="gallery-counter">
+          <span id="gallery-current">1</span> / <span id="gallery-total">11</span>
+        </div>
+
+        <!-- Slides track -->
+        <div class="gallery-track" id="gallery-track">
+
+          <!-- Slide 1 -->
+          <div class="gallery-slide" id="gslide-0">
+            <div class="gallery-slide-bg gallery-slide-bg-1">
+              <div class="gallery-placeholder-icon">🌐</div>
+              <div class="gallery-placeholder-text">Google Vietnam</div>
+            </div>
+            <img class="img-blur" src="gallery-1.jpg" alt="" aria-hidden="true" />
+            <img class="img-main" src="gallery-1.jpg" alt="Google Student Ambassador" /> 
+            <div class="gallery-caption">
+              <div class="gallery-caption-tag">Google Vietnam</div>
+              <div class="gallery-caption-title">Google Student Ambassador — Workshop AI & Chuyển đổi số</div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="gallery-slide" id="gslide-1">
+            <div class="gallery-slide-bg gallery-slide-bg-2">
+              <div class="gallery-placeholder-icon">📱</div>
+              <div class="gallery-placeholder-text">OPPO NEXT TREND</div>
+            </div>
+            <img class="img-blur" src="gallery-2.jpg" alt="" aria-hidden="true" />
+            <img class="img-main" src="gallery-2.jpg" alt="OPPO NEXT TREND Ambassador" />
+            <div class="gallery-caption">
+              <div class="gallery-caption-tag">OPPO Vietnam</div>
+              <div class="gallery-caption-title">NEXT TREND Ambassador 2025 — Chiến dịch Gen Z</div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="gallery-slide" id="gslide-2">
+            <div class="gallery-slide-bg gallery-slide-bg-3">
+              <div class="gallery-placeholder-icon">💻</div>
+              <div class="gallery-placeholder-text">Quảng bá trường cùng VTV24</div>
+            </div>
+            <img class="img-blur" src="gallery-3.jpg" alt="" aria-hidden="true" />
+            <img class="img-main" src="gallery-3.jpg" alt="Quảng bá trường cùng VTV24" />
+            <div class="gallery-caption">
+              <div class="gallery-caption-tag">VTV 24</div>
+              <div class="gallery-caption-title">Quảng bá trường cùng VTV24</div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="gallery-slide" id="gslide-3">
+            <div class="gallery-slide-bg gallery-slide-bg-4">
+              <div class="gallery-placeholder-icon">🏛️</div>
+              <div class="gallery-placeholder-text">Đền Hùng</div>
+            </div>
+            <img class="img-blur" src="gallery-4.jpg" alt="" aria-hidden="true" />
+            <img class="img-main" src="gallery-4.jpg" alt="Đọc diễn văn tại Đền Hùng" />
+            <div class="gallery-caption">
+              <div class="gallery-caption-tag">Vitri APD Military</div>
+              <div class="gallery-caption-title">Đại diện 1.600+ sinh viên — Đọc diễn văn tại Đền Hùng</div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="gallery-slide" id="gslide-4">
+            <div class="gallery-slide-bg gallery-slide-bg-5">
+              <div class="gallery-placeholder-icon">🏆</div>
+              <div class="gallery-placeholder-text">Đột phá kinh doanh số</div>
+            </div>
+            <img class="img-blur" src="gallery-5.jpg" alt="" aria-hidden="true" />
+            <img class="img-main" src="gallery-5.jpg" alt="DBIC 2025" />
+            <div class="gallery-caption">
+              <div class="gallery-caption-tag">DBIC 2025</div>
+              <div class="gallery-caption-title">Giải triển vọng: Cuộc thi đột phá kinh doanh số </div>
+            </div>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="gallery-slide" id="gslide-5">
+            <div class="gallery-slide-bg gallery-slide-bg-6">
+              <div class="gallery-placeholder-icon">🎬</div>
+              <div class="gallery-placeholder-text">Take One Video</div>
+            </div>
+            <img class="img-blur" src="gallery-6.jpg" alt="" aria-hidden="true" />
+            <img class="img-main" src="gallery-6.jpg" alt="Take One Video Contest" />
+            <div class="gallery-caption">
+              <div class="gallery-caption-tag">Youth NEU Media</div>
+              <div class="gallery-caption-title">Take One — Giải Quý quân Video Quảng cáo</div>
+            </div>
+          </div>
+
+          <!-- Slide 7 -->
+          <div class="gallery-slide" id="gslide-6">
+            <div class="gallery-slide-bg gallery-slide-bg-7">
+              <div class="gallery-placeholder-icon">🤝</div>
+              <div class="gallery-placeholder-text">Tình nguyện</div>
+            </div>
+            <img class="img-blur" src="gallery-7.jpg" alt="" aria-hidden="true" />
+            <img class="img-main" src="gallery-7.jpg" alt="Tham gia tình nguyên viên" />
+            <div class="gallery-caption">
+              <div class="gallery-caption-tag">Social Activity</div>
+              <div class="gallery-caption-title">Chiến dịch Thắp ĐUỐC 2025 — Mộc Châu, Võ Nhai</div>
+            </div>
+          </div>
+
+          <!-- Slide 8 -->
+          <div class="gallery-slide" id="gslide-7">
+            <div class="gallery-slide-bg gallery-slide-bg-8">
+              <div class="gallery-placeholder-icon">🎤</div>
+              <div class="gallery-placeholder-text">MC & Sự kiện</div>
+            </div>
+            <img class="img-blur" src="gallery-8.jpg" alt="" aria-hidden="true" />
+            <img class="img-main" src="gallery-8.jpg" alt="MC sự kiện" />
+            <div class="gallery-caption">
+              <div class="gallery-caption-tag">Leadership</div>
+              <div class="gallery-caption-title">MC & Trưởng ban — Các sự kiện</div>
+            </div>
+          </div>
+
+          <!-- Slide 9 -->
+          <div class="gallery-slide" id="gslide-8">
+            <div class="gallery-slide-bg gallery-slide-bg-9">
+              <div class="gallery-placeholder-icon">📸</div>
+              <div class="gallery-placeholder-text">Quốc hội giả định</div>
+            </div>
+            <img class="img-blur" src="gallery-9.jpg" alt="" aria-hidden="true" />
+            <img class="img-main" src="gallery-9.jpg" alt="Quốc hội giả định" />
+            <div class="gallery-caption">
+              <div class="gallery-caption-tag">Quốc hội giả định</div>
+              <div class="gallery-caption-title">Bộ trưởng bộ tài chính - Quốc hội giả định</div>
+            </div>
+          </div>
+
+          <!-- Slide 10 -->
+          <div class="gallery-slide" id="gslide-9">
+            <div class="gallery-slide-bg gallery-slide-bg-10">
+              <div class="gallery-placeholder-icon">🎨</div>
+              <div class="gallery-placeholder-text">Sinh viên tiêu biểu khoa Kinh tế số</div>
+            </div>
+            <img class="img-blur" src="gallery-10.jpg" alt="" aria-hidden="true" />
+            <img class="img-main" src="gallery-10.jpg" alt="Sinh viên tiêu biểu khoa Kinh tế số" />
+            <div class="gallery-caption">
+              <div class="gallery-caption-tag">Kinh tế số</div>
+              <div class="gallery-caption-title">Sinh viên tiêu biểu khoa Kinh tế số</div>
+            </div>
+          </div>
+
+          <!-- Slide 11 -->
+          <div class="gallery-slide" id="gslide-10">
+            <div class="gallery-slide-bg gallery-slide-bg-11">
+              <div class="gallery-placeholder-icon">🌟</div>
+              <div class="gallery-placeholder-text">Destination through times</div>
+            </div>
+            <img class="img-blur" src="gallery-11.jpg" alt="" aria-hidden="true" />
+            <img class="img-main" src="gallery-11.jpg" alt="Destination through times" />
+            <div class="gallery-caption">
+              <div class="gallery-caption-tag">Destination through times</div>
+              <div class="gallery-caption-title">Destination through times - Giải 3 cuộc thi</div>
+            </div>
+          </div>
+
+        </div><!-- /gallery-track -->
+
+        <!-- Arrow buttons -->
+        <button class="gallery-arrow gallery-arrow-prev" id="gallery-prev" aria-label="Slide trước">&#8249;</button>
+        <button class="gallery-arrow gallery-arrow-next" id="gallery-next" aria-label="Slide tiếp">&#8250;</button>
+
+        <!-- Pause badge -->
+        <div class="gallery-pause-badge" id="gallery-pause-badge">
+          <div class="gallery-pause-dot"></div>
+          <span id="gallery-pause-text">Tự động</span>
+        </div>
+
+      </div><!-- /gallery-stage -->
+
+      <!-- ── Thumbnail Strip ── -->
+      <div class="gallery-thumbs" id="gallery-thumbs">
+        <div class="gallery-thumb active" data-index="0">
+          <div class="gallery-thumb-bg gallery-slide-bg-1"></div>
+          <img src="gallery-1.jpg" alt="" />
+          <div class="gallery-thumb-label">🌐</div>
+        </div>
+        <div class="gallery-thumb" data-index="1">
+          <div class="gallery-thumb-bg gallery-slide-bg-2"></div>
+          <img src="gallery-2.jpg" alt="" />
+          <div class="gallery-thumb-label">📱</div>
+        </div>
+        <div class="gallery-thumb" data-index="2">
+          <div class="gallery-thumb-bg gallery-slide-bg-3"></div>
+          <img src="gallery-3.jpg" alt="" />
+          <div class="gallery-thumb-label">💻</div>
+        </div>
+        <div class="gallery-thumb" data-index="3">
+          <div class="gallery-thumb-bg gallery-slide-bg-4"></div>
+          <img src="gallery-4.jpg" alt="" />
+          <div class="gallery-thumb-label">🏛️</div>
+        </div>
+        <div class="gallery-thumb" data-index="4">
+          <div class="gallery-thumb-bg gallery-slide-bg-5"></div>
+          <img src="gallery-5.jpg" alt="" />
+          <div class="gallery-thumb-label">🏆</div>
+        </div>
+        <div class="gallery-thumb" data-index="5">
+          <div class="gallery-thumb-bg gallery-slide-bg-6"></div>
+          <img src="gallery-6.jpg" alt="" />
+          <div class="gallery-thumb-label">🎬</div>
+        </div>
+        <div class="gallery-thumb" data-index="6">
+          <div class="gallery-thumb-bg gallery-slide-bg-7"></div>
+          <img src="gallery-7.jpg" alt="" />
+          <div class="gallery-thumb-label">🤝</div>
+        </div>
+        <div class="gallery-thumb" data-index="7">
+          <div class="gallery-thumb-bg gallery-slide-bg-8"></div>
+          <img src="gallery-8.jpg" alt="" />
+          <div class="gallery-thumb-label">🎤</div>
+        </div>
+        <div class="gallery-thumb" data-index="8">
+          <div class="gallery-thumb-bg gallery-slide-bg-9"></div>
+          <img src="gallery-9.jpg" alt="" />
+          <div class="gallery-thumb-label">📸</div>
+        </div>
+        <div class="gallery-thumb" data-index="9">
+          <div class="gallery-thumb-bg gallery-slide-bg-10"></div>
+          <img src="gallery-10.jpg" alt="" />
+          <div class="gallery-thumb-label">🎨</div>
+        </div>
+        <div class="gallery-thumb" data-index="10">
+          <div class="gallery-thumb-bg gallery-slide-bg-11"></div>
+          <img src="gallery-11.jpg" alt="" />
+          <div class="gallery-thumb-label">🌟</div>
+        </div>
+      </div><!-- /gallery-thumbs -->
+
+    </div><!-- /section-inner -->
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Xem ảnh lớn" aria-modal="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Đóng">&#10005;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Ảnh trước">&#8249;</button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Ảnh tiếp">&#8250;</button>
+    <div class="lightbox-img-wrap" id="lightbox-img-wrap"></div>
+  </div>
+
+  <!-- ============================================================
+       07. CONTACT / CTA SECTION
+  ============================================================ -->
+  <section id="contact" aria-label="Contact">
+    <div class="contact-inner">
+      <p class="contact-label reveal">Cùng tạo nên điều gì đó</p>
+      <h2 class="contact-headline reveal reveal-delay-1">
+        Hãy cùng<br /><em>làm việc</em> nhau.
+      </h2>
+      <p class="contact-sub reveal reveal-delay-2">
+        Tôi luôn sẵn sàng cho những dự án mới, cơ hội hợp tác<br />
+        và những cuộc trò chuyện có giá trị.
+      </p>
+
+      <div class="contact-icons reveal reveal-delay-3">
+        <a href="mailto:nguyenthevietk76@gmail.com" class="contact-icon-link" id="contact-email">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          nguyenthevietk76@gmail.com
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-icon-link" id="contact-linkedin">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener" class="contact-icon-link" id="contact-github">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.facebook.com/nguyen.the.viet.220884" target="_blank" rel="noopener" class="contact-icon-link" id="contact-facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </a>
+        <a href="https://www.tiktok.com/@viet_ngthe?lang=vi-VN" target="_blank" rel="noopener" class="contact-icon-link" id="contact-tiktok">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          TikTok
+        </a>
+      </div>
+
+      <a href="mailto:nguyenthevietk76@gmail.com" class="contact-cta-btn reveal reveal-delay-4" id="contact-cta">
+        Cùng làm việc ngay
+        <span class="contact-cta-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-copy">
+        © 2026 Nguyễn Thế Việt · Hà Nội, Việt Nam
+      </div>
+      <div class="footer-links">
+        <a href="mailto:nguyenthevietk76@gmail.com" class="footer-link">Email</a>
+        <a href="https://linkedin.com" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.facebook.com/nguyen.the.viet.220884" class="footer-link" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.tiktok.com/@viet_ngthe?lang=vi-VN" class="footer-link" target="_blank" rel="noopener">TikTok</a>
+      </div>
+      <a href="#hero" class="back-to-top" id="back-to-top">
+        ↑ Về đầu trang
+      </a>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    'use strict';
+
+    // ─── INTRO SCREEN ────────────────────────────────────────────
+    window.addEventListener('load', () => {
+      const intro = document.getElementById('intro-screen');
+      setTimeout(() => {
+        intro.classList.add('fade-out');
+        setTimeout(() => { intro.style.display = 'none'; }, 900);
+      }, 2200);
+    });
+
+    // ─── CUSTOM CURSOR ───────────────────────────────────────────
+    const dot  = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mouseX = 0, mouseY = 0;
+    let ringX  = 0, ringY  = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top  = mouseY + 'px';
+    });
+
+    // Lag ring
+    (function animateRing() {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top  = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    })();
+
+    // Hover effect on interactive elements
+    const interactives = document.querySelectorAll('a, button, [role="button"]');
+    interactives.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ring.style.transform = 'translate(-50%, -50%) scale(1.6)';
+        ring.style.borderColor = 'var(--color-accent)';
+        dot.style.transform = 'translate(-50%, -50%) scale(0.5)';
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.style.transform = 'translate(-50%, -50%) scale(1)';
+        ring.style.borderColor = 'var(--color-primary)';
+        dot.style.transform = 'translate(-50%, -50%) scale(1)';
+      });
+    });
+
+    // Hide cursor when leaving window
+    document.addEventListener('mouseleave', () => {
+      dot.style.opacity = '0';
+      ring.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      dot.style.opacity = '1';
+      ring.style.opacity = '0.7';
+    });
+
+    // ─── NAVBAR SCROLL BEHAVIOR ──────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // ─── MOBILE MENU ─────────────────────────────────────────────
+    const burger    = document.getElementById('nav-burger');
+    const mobileNav = document.getElementById('nav-mobile');
+
+    burger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ─── SCROLLSPY ───────────────────────────────────────────────
+    const sections  = document.querySelectorAll('section[id]');
+    const navLinksEl = document.querySelectorAll('.nav-link');
+
+    const spyObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinksEl.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + entry.target.id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => spyObserver.observe(s));
+
+    // ─── SCROLL REVEAL ───────────────────────────────────────────
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ─── COUNT-UP ANIMATION ──────────────────────────────────────
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+    const countObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el     = entry.target;
+          const target = parseInt(el.getAttribute('data-target'));
+          const suffix = el.getAttribute('data-suffix') || '';
+          let current  = 0;
+          const duration = 1800;
+          const step = target / (duration / 16);
+          const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            el.textContent = Math.floor(current).toLocaleString('vi-VN') + suffix;
+            if (current >= target) clearInterval(timer);
+          }, 16);
+          countObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    statNumbers.forEach(el => countObserver.observe(el));
+
+    // ─── PROCESS LINE DRAW ───────────────────────────────────────
+    const processLine    = document.getElementById('process-line');
+    const processSection = document.getElementById('process-timeline');
+
+    if (processLine && processSection) {
+      const lineObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            processLine.classList.add('drawn');
+            lineObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      lineObserver.observe(processSection);
+    }
+
+    // ─── SMOOTH SCROLL for all anchor links ──────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const targetId = link.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          const offsetTop = target.getBoundingClientRect().top + window.scrollY - 72;
+          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ─── PARALLAX for hero shapes ─────────────────────────────────
+    const shapes = document.querySelectorAll('.hero-shape');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      shapes.forEach((shape, i) => {
+        const speed = (i + 1) * 0.08;
+        shape.style.transform = `translateY(${scrollY * speed}px)`;
+      });
+    }, { passive: true });
+
+    // ─── REDUCED MOTION CHECK ────────────────────────────────────
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      if (processLine) processLine.classList.add('drawn');
+    }
+
+    // ─── GALLERY SLIDESHOW ───────────────────────────────────────
+    (function initGallery() {
+      const stage       = document.getElementById('gallery-stage');
+      if (!stage) return;
+
+      const track       = document.getElementById('gallery-track');
+      const progressEl  = document.getElementById('gallery-progress');
+      const currentEl   = document.getElementById('gallery-current');
+      const totalEl     = document.getElementById('gallery-total');
+      const prevBtn     = document.getElementById('gallery-prev');
+      const nextBtn     = document.getElementById('gallery-next');
+      const thumbs      = document.querySelectorAll('.gallery-thumb');
+      const pauseBadge  = document.getElementById('gallery-pause-badge');
+      const pauseText   = document.getElementById('gallery-pause-text');
+      const lightbox    = document.getElementById('lightbox');
+      const lbClose     = document.getElementById('lightbox-close');
+      const lbPrev      = document.getElementById('lightbox-prev');
+      const lbNext      = document.getElementById('lightbox-next');
+      const lbImgWrap   = document.getElementById('lightbox-img-wrap');
+
+      const TOTAL       = thumbs.length;
+      const INTERVAL    = 4000; // ms mỗi slide
+      let current       = 0;
+      let isPaused      = false;
+      let progressVal   = 0;
+      let progressTimer = null;
+      let autoTimer     = null;
+
+      totalEl.textContent = TOTAL;
+
+      // ── Chuyển slide ──
+      function goTo(index, direction) {
+        index = (index + TOTAL) % TOTAL;
+        current = index;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        currentEl.textContent = current + 1;
+
+        // Cập nhật thumbnails
+        thumbs.forEach((t, i) => t.classList.toggle('active', i === current));
+
+        // Cuộn ngang trong thanh thumbnail (không ảnh hưởng scroll của trang)
+        const thumbsContainer = document.getElementById('gallery-thumbs');
+        const activeThumb = thumbs[current];
+        if (thumbsContainer && activeThumb) {
+          const containerLeft  = thumbsContainer.getBoundingClientRect().left;
+          const thumbLeft      = activeThumb.getBoundingClientRect().left;
+          const scrollOffset   = thumbLeft - containerLeft - (thumbsContainer.offsetWidth / 2) + (activeThumb.offsetWidth / 2);
+          thumbsContainer.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+        }
+
+        // Reset progress
+        resetProgress();
+      }
+
+      // ── Progress bar ──
+      function resetProgress() {
+        progressVal = 0;
+        if (progressEl) progressEl.style.width = '0%';
+        clearInterval(progressTimer);
+        if (!isPaused) startProgress();
+      }
+
+      function startProgress() {
+        const step = 100 / (INTERVAL / 50);
+        progressTimer = setInterval(() => {
+          progressVal = Math.min(progressVal + step, 100);
+          if (progressEl) progressEl.style.width = progressVal + '%';
+          if (progressVal >= 100) {
+            clearInterval(progressTimer);
+          }
+        }, 50);
+      }
+
+      // ── Auto play ──
+      function startAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(() => {
+          if (!isPaused) goTo(current + 1);
+        }, INTERVAL);
+      }
+
+      // ── Pause / Resume ──
+      function pause() {
+        isPaused = true;
+        clearInterval(progressTimer);
+        if (pauseBadge) pauseBadge.classList.add('paused');
+        if (pauseText)  pauseText.textContent = 'Tạm dừng';
+      }
+
+      function resume() {
+        isPaused = false;
+        if (pauseBadge) pauseBadge.classList.remove('paused');
+        if (pauseText)  pauseText.textContent = 'Tự động';
+        startProgress();
+      }
+
+      // ── Events ──
+      prevBtn.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+      nextBtn.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+
+      stage.addEventListener('mouseenter', pause);
+      stage.addEventListener('mouseleave', resume);
+
+      thumbs.forEach((thumb, i) => {
+        thumb.addEventListener('click', () => { goTo(i); startAuto(); });
+      });
+
+      // Touch swipe
+      let touchX = 0;
+      stage.addEventListener('touchstart', e => { touchX = e.changedTouches[0].screenX; }, { passive: true });
+      stage.addEventListener('touchend', e => {
+        const diff = touchX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 40) {
+          goTo(diff > 0 ? current + 1 : current - 1);
+          startAuto();
+        }
+      }, { passive: true });
+
+      // Keyboard
+      document.addEventListener('keydown', e => {
+        if (lightbox && lightbox.classList.contains('open')) return;
+        if (e.key === 'ArrowLeft')  goTo(current - 1);
+        if (e.key === 'ArrowRight') goTo(current + 1);
+      });
+
+      // Click slide để mở lightbox
+      track.addEventListener('click', () => openLightbox(current));
+
+      // ── Lightbox ──
+      function openLightbox(index) {
+        if (!lightbox) return;
+        renderLightbox(index);
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        pause();
+      }
+
+      function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+        resume();
+      }
+
+      function renderLightbox(index) {
+        const slide = document.getElementById('gslide-' + index);
+        if (!slide) return;
+        // Lấy ảnh chính (img-main hoặc ảnh đầu tiên không phải blur)
+        const imgMain = slide.querySelector('.img-main') || slide.querySelector('img:not(.img-blur)');
+        const caption = slide.querySelector('.gallery-caption-title');
+        const tag     = slide.querySelector('.gallery-caption-tag');
+        const bgEl    = slide.querySelector('.gallery-slide-bg');
+
+        let html = '';
+        if (imgMain) {
+          // Lightbox dùng contain để hiển đầy đủ cả ảnh dọc lẫn ngang
+          html = `<img src="${imgMain.src}" alt="${imgMain.alt}"
+            style="display:block;max-width:90vw;max-height:85vh;width:auto;height:auto;border-radius:var(--radius-lg);" />`;
+        } else if (bgEl) {
+          const icon = slide.querySelector('.gallery-placeholder-icon');
+          const cls  = bgEl.className.replace('gallery-slide-bg', '').trim();
+          html = `<div class="lightbox-bg ${cls}">${icon ? icon.textContent : '🖼️'}</div>`;
+        }
+
+        if (caption || tag) {
+          html += `<div class="lightbox-info">`;
+          if (tag)     html += `<div style="font-family:var(--font-mono);font-size:11px;color:var(--color-accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px">${tag.textContent}</div>`;
+          if (caption) html += `<div class="lightbox-title">${caption.textContent}</div>`;
+          html += `</div>`;
+        }
+
+        lbImgWrap.innerHTML = html;
+        // Reset style cho lightbox-img-wrap khi có ảnh thật
+        lbImgWrap.style.maxWidth  = imgMain ? 'fit-content' : '800px';
+        lbImgWrap.style.maxHeight = '90vh';
+
+        lbPrev._lbIndex = (index - 1 + TOTAL) % TOTAL;
+        lbNext._lbIndex = (index + 1) % TOTAL;
+        lbPrev.onclick  = () => { goTo(lbPrev._lbIndex); renderLightbox(lbPrev._lbIndex); };
+        lbNext.onclick  = () => { goTo(lbNext._lbIndex); renderLightbox(lbNext._lbIndex); };
+      }
+
+      if (lbClose) lbClose.addEventListener('click', closeLightbox);
+      if (lightbox) lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+      document.addEventListener('keydown', e => {
+        if (!lightbox || !lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft')  { const i = (current - 1 + TOTAL) % TOTAL; goTo(i); renderLightbox(i); }
+        if (e.key === 'ArrowRight') { const i = (current + 1) % TOTAL;         goTo(i); renderLightbox(i); }
+      });
+
+      // ── Khởi động sau khi trang đã load ──
+      // Dùng setTimeout để tránh gallery tự cuộn trang ngay khi load
+      setTimeout(() => {
+        goTo(0);
+        startAuto();
+      }, 100);
+    })();
+
+    // ─── TOGGLE EXPERIENCE & AWARDS XYZ FORMULA ──────────────────
+    document.querySelectorAll('.exp-item, .award-card').forEach(item => {
+      if (item.querySelector('.exp-xyz-formula, .award-xyz-formula')) {
+        item.addEventListener('click', (e) => {
+          // Tránh trigger khi click vào các thẻ link bên trong (nếu có)
+          if (e.target.closest('a')) return;
+          item.classList.toggle('expanded');
+        });
+      }
+    });
+
+  </script>
+
+</body>
+</html>
